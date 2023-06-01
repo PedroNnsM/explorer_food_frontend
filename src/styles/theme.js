@@ -1,9 +1,5 @@
 export default {
-  BREAKPOINTS: {
-    small: "576px",
-    medium: "768px",
-    large: "992px",
-  },
+  
   COLORS: {
     LIGHT: {
       100: "#FFFFFF",

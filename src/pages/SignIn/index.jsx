@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Container, Form, StyledLink } from "./styles";
+import { Container, Form, Fildset, StyledLink } from "./styles";
 import theme from "../../styles/theme";
 
 import { useAuth } from "../../hooks/auth";
@@ -20,30 +20,33 @@ export function SignIn() {
 
   return (
     <Container>
+      <ExplorerIcon
+        fill={theme.COLORS.CAKE["100"]}
+        color={theme.COLORS.LIGHT["100"]}
+        marginBotton="5rem"
+      />
       <Form>
-        <ExplorerIcon
-          fill={theme.COLORS.CAKE["100"]}
-          color={theme.COLORS.LIGHT["100"]}
-          marginBotton="5rem"
-        />
-        {/* <h2>Faça seu Login</h2> */}
+        <h1>Faça Login</h1>
 
-        <label htmlFor="email">Email</label>
-        <Input
-          placeholder="Exemplo: exemplo@exemplo.com.br"
-          id={email}
-          label="E-mail"
-          type="text"
-          onChange={(e) => setEmail(e.target.value)}
-        />
-
-        <label htmlFor="password">Senha</label>
-        <Input
-          placeholder="Senha"
-          id="password"
-          type="password"
-          onChange={(e) => setPassword(e.target.value)}
-        />
+        <Fildset>
+          <label htmlFor="email">Email</label>
+          <Input
+            placeholder="Exemplo: exemplo@exemplo.com.br"
+            id={email}
+            label="E-mail"
+            type="text"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </Fildset>
+        <Fildset>
+          <label htmlFor="password">Senha</label>
+          <Input
+            placeholder="Senha"
+            id="password"
+            type="password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </Fildset>
 
         <Button title="Entrar" to="/register" onClick={handleSignIn} />
 

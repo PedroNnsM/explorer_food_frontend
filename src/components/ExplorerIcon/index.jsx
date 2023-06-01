@@ -5,8 +5,8 @@ export function ExplorerIcon({ color, fill, marginBotton, ...rest }) {
   return (
     <Container marginBotton={marginBotton} {...rest}>
       <svg
-        width="39"
-        height="44"
+        width="4.7rem"
+        height="4.7rem"
         viewBox="0 0 39 44"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

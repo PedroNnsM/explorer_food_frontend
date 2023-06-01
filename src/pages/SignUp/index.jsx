@@ -1,11 +1,12 @@
 import { useState } from "react";
 
-import { Link, useNavigate } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
+import theme from "../../styles/theme";
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
 import { api } from "../../services/api";
-import { Container, Form } from "./styles";
+import { Container, Form, Fildset, StyledLink } from "./styles";
+import { ExplorerIcon } from "../../components/ExplorerIcon";
 
 export function SignUp() {
   const [name, setName] = useState("");
@@ -35,33 +36,46 @@ export function SignUp() {
 
   return (
     <Container>
+      <ExplorerIcon
+        fill={theme.COLORS.CAKE["100"]}
+        color={theme.COLORS.LIGHT["100"]}
+        marginBotton="5rem"
+      />
       <Form>
-        <h1>Rocket Notes</h1>
-        <p>Aplicação para salvar e gerenciar links úteis</p>
+        <h1>Crie sua conta</h1>
 
-        <h2>Crie sua conta</h2>
+        <Fildset>
+          <label htmlFor="name">Seu nome</label>
+          <Input
+            placeholder="Digite seu nome"
+            type="text"
+            id={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </Fildset>
 
-        <Input
-          placeholder="Nome"
-          type="text"
-          onChange={(e) => setName(e.target.value)}
-        />
-
-        <Input
-          placeholder="E-mail"
-          type="text"
-          onChange={(e) => setEmail(e.target.value)}
-        />
-
-        <Input
-          placeholder="Senha"
-          type="password"
-          onChange={(e) => setPassword(e.target.value)}
-        />
+        <Fildset>
+          <label htmlFor="email">Email</label>
+          <Input
+            placeholder="Exemplo: exemplo@exemplo.com.br"
+            id={email}
+            type="text"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </Fildset>
+        <Fildset>
+          <label htmlFor="password">Senha</label>
+          <Input
+            placeholder="Senha"
+            id="password"
+            type="password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </Fildset>
 
         <Button title="Cadastrar" onClick={handleSignUp} />
 
-        <Link to="/">Voltar para o login</Link>
+        <StyledLink to="/">Voltar para o login</StyledLink>
       </Form>
     </Container>
   );
