@@ -1,11 +1,10 @@
-import { Container, Label } from "./styles";
+import { Container } from "./styles";
 
-// eslint-disable-next-line react/prop-types
-export function Input({ id, label, ...rest }) {
+
+export function Input({   ...rest }) {
   return (
     <Container>
-      <Label htmlFor={id}>{label}</Label>
-      <input id={id} {...rest} />
+      <input  {...rest} />
     </Container>
   );
 }

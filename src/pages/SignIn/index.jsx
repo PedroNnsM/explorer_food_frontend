@@ -1,8 +1,6 @@
 import { useState } from "react";
-import { Container, Form } from "./styles";
+import { Container, Form, StyledLink } from "./styles";
 import theme from "../../styles/theme";
-
-import { Link } from "react-router-dom";
 
 import { useAuth } from "../../hooks/auth";
 
@@ -26,26 +24,30 @@ export function SignIn() {
         <ExplorerIcon
           fill={theme.COLORS.CAKE["100"]}
           color={theme.COLORS.LIGHT["100"]}
+          marginBotton="5rem"
         />
-        <h2>Faça seu Login</h2>
+        {/* <h2>Faça seu Login</h2> */}
 
+        <label htmlFor="email">Email</label>
         <Input
           placeholder="Exemplo: exemplo@exemplo.com.br"
           id={email}
-          label='E-mail'
+          label="E-mail"
           type="text"
           onChange={(e) => setEmail(e.target.value)}
         />
 
+        <label htmlFor="password">Senha</label>
         <Input
           placeholder="Senha"
+          id="password"
           type="password"
           onChange={(e) => setPassword(e.target.value)}
         />
 
         <Button title="Entrar" to="/register" onClick={handleSignIn} />
 
-        <Link to="/register">Criar conta</Link>
+        <StyledLink to="/register">Criar conta</StyledLink>
       </Form>
     </Container>
   );

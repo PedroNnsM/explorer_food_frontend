@@ -6,10 +6,11 @@ export const Container = styled.div`
   align-items: center;
 
   background-color: ${({ theme }) => theme.COLORS.DARK["900"]};
-  color: ${({ theme }) => theme.COLORS.LIGHT["500"]};
+  color: ${({ theme }) => theme.COLORS.LIGHT["100"]};
 
   margin-bottom: 8px;
-  border-radius: 10px;
+  border: 1px solid ${({ theme }) => theme.COLORS.DARK["900"]};
+  border-radius: 5px;
 
   > input {
     height: 56px;
@@ -17,18 +18,12 @@ export const Container = styled.div`
 
     padding: 12px;
 
-    color: ${({ theme }) => theme.COLORS.LIGHT["500"]};
-    background-color: ${({ theme }) => theme.COLORS.DARK["900"]};
+    color: ${({ theme }) => theme.COLORS.LIGHT["100"]};
+    background-color: transparent;
     border: 0;
 
     &:placeholder {
       color: ${({ theme }) => theme.COLORS.LIGHT["500"]};
     }
   }
-`;
-
-export const Label = styled.label`
-  color: ${({ theme }) => theme.COLORS.LIGHT["500"]};
-  width: 100%;
-  text-align: start;
 `;

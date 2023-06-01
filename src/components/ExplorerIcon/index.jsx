@@ -1,9 +1,9 @@
 import { Container,IconText } from "./styles";
 
 // eslint-disable-next-line react/prop-types
-export function ExplorerIcon({ color, fill, ...rest }) {
+export function ExplorerIcon({ color, fill, marginBotton, ...rest }) {
   return (
-    <Container {...rest}>
+    <Container marginBotton={marginBotton} {...rest}>
       <svg
         width="39"
         height="44"
@@ -16,7 +16,7 @@ export function ExplorerIcon({ color, fill, ...rest }) {
           fill={fill}
         />
       </svg>
-      <IconText color={color} >food explorer</IconText>
+      <IconText color={color}  >food explorer</IconText>
     </Container>
   );
 }

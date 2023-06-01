@@ -1,13 +1,14 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Container = styled.div`
-width: 100vw;
   height: 100vh;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
 `;
 export const Form = styled.form`
-  padding: 0 136px;
   display: flex;
   margin: 0 auto;
   flex-direction: column;
@@ -15,11 +16,17 @@ export const Form = styled.form`
   align-items: center;
   text-align: center;
 
-  > h1 {
-    font-size: 48px;
-    color: ${({ theme }) => theme.COLORS.LIGHT_400};
+  > label {
+    width: 100%;
+    text-align: start;
+    padding: 1rem;
+    font-size: 1.6rem;
   }
 
+  > h1 {
+    font-size: 48px;
+  }
+  
   > h2 {
     font-size: 24px;
     margin: 48px 0;
@@ -31,9 +38,13 @@ export const Form = styled.form`
   }
 
   > a {
-    margin-top: 124px;
+    text-decoration: none;
     color: ${({ theme }) => theme.COLORS.ORANGE};
   }
 `;
 
-
+export const StyledLink = styled(Link)`
+margin-top: 3.2rem ;
+  color: ${({ theme }) => theme.COLORS.LIGHT['100']};
+  font-size: 1.4rem;
+`

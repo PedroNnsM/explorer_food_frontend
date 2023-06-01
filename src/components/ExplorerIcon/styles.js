@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 100%;
+  margin-bottom: ${(props) => props.marginBotton};
   font-size: 3.5rem;
   display: flex;
   gap: 1.5rem;
