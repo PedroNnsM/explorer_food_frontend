@@ -58,6 +58,7 @@ export const Fildset = styled.div`
   }
   @media (min-width: 767px) {
     width: 34.8rem;
+    
     }
 `;
 

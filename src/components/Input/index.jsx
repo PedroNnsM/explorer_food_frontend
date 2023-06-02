@@ -1,9 +1,11 @@
 import { Container } from "./styles";
 
+import {GoSearch} from 'react-icons/go'
 
-export function Input({   ...rest }) {
+// eslint-disable-next-line react/prop-types
+export function Input({searching,   ...rest }) {
   return (
-    <Container>
+    <Container >{searching ? <GoSearch size={24} />: <></> }
       <input  {...rest} />
     </Container>
   );

@@ -11,7 +11,9 @@ export const Container = styled.div`
   margin-bottom: 8px;
   border: 1px solid ${({ theme }) => theme.COLORS.DARK["900"]};
   border-radius: 5px;
-
+  > svg {
+    margin: 0 16px;
+  }
   > input {
     height: 56px;
     width: 100%;
