@@ -40,6 +40,7 @@ export function SignUp() {
         fill={theme.COLORS.CAKE["100"]}
         color={theme.COLORS.LIGHT["100"]}
         marginBotton="5rem"
+        width="43px"
       />
       <Form>
         <h1>Crie sua conta</h1>

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   margin-bottom: ${(props) => props.marginBotton};
-  width: 31.6rem;
+
   margin-left: auto;
   margin-right: auto;
   font-size: 3.5rem;
@@ -11,5 +11,6 @@ export const Container = styled.div`
 `;
 export const IconText = styled.p`
   color: ${(props) => props.color};
+  font-size: ${(props) => props.fontSize};
   font-weight: 700;
 `;
