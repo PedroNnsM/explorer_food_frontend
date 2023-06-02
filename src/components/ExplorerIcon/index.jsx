@@ -1,9 +1,24 @@
+/* eslint-disable react/prop-types */
 import { Container, IconText } from "./styles";
 
-// eslint-disable-next-line react/prop-types
-export function ExplorerIcon({ color, fontSize, fill, width, height, marginBotton, ...rest }) {
+
+export function ExplorerIcon({
+  color,
+  fontSize,
+  margin,
+  fill,
+  width,
+  height,
+  marginBotton,
+  ...rest
+}) {
   return (
-    <Container marginBotton={marginBotton} width={width} {...rest}>
+    <Container
+      marginBotton={marginBotton}
+      margin={margin}
+      width={width}
+      {...rest}
+    >
       <svg
         width={width}
         height={height}
@@ -16,7 +31,9 @@ export function ExplorerIcon({ color, fontSize, fill, width, height, marginBotto
           fill={fill}
         />
       </svg>
-      <IconText color={color} fontSize={fontSize}>food explorer</IconText>
+      <IconText color={color} fontSize={fontSize}>
+        food explorer
+      </IconText>
     </Container>
   );
 }

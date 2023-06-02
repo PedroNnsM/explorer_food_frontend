@@ -5,6 +5,7 @@ export default createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
   }
 
   :root {
@@ -12,9 +13,9 @@ export default createGlobalStyle`
   }
 
   body {
-    background: ${({ theme }) => theme.COLORS.DARK['400']};
-    color: ${({ theme }) => theme.COLORS.LIGHT['100']};
-
+    background: ${({ theme }) => theme.COLORS.DARK["400"]};
+    color: ${({ theme }) => theme.COLORS.LIGHT["100"]};
+    
     -webkit-font-smoothing: antialiased;
   }
 
@@ -23,7 +24,9 @@ export default createGlobalStyle`
 
     outline: none;
   }
-
+  p, spam, a {
+    font-family: ${({ theme }) => theme.FONTS.TEXT};
+  }
   a {
     text-decoration: none;
   }
@@ -36,4 +39,4 @@ export default createGlobalStyle`
   button:hover, a:hover {
     filter: brightness(.9);
   }
-`
+`;

@@ -1,6 +1,13 @@
 import { useState } from "react";
 
-import { Container, Navbar, ItemMenu, Item } from "./styles";
+import {
+  Container,
+  Navbar,
+  ItemMenu,
+  Item,
+  InputSearching,
+  ReceiptImg,
+} from "./styles";
 import theme from "../../styles/theme";
 
 import { Input } from "../Input";
@@ -13,6 +20,7 @@ import { useAuth } from "../../hooks/auth";
 import { useNavigate } from "react-router-dom";
 
 export function Header() {
+  const [count, setCount] = useState("0");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const { user, signOut } = useAuth();
@@ -27,6 +35,12 @@ export function Header() {
   function toggleMenu() {
     setIsMenuOpen(!isMenuOpen);
   }
+  function moveToReceipt() {
+    navigate("/receipt");
+  }
+  function countReceipt() {
+    setCount(count + 1);
+  }
 
   console.log(isAdmin);
   return (
@@ -39,7 +53,9 @@ export function Header() {
         )}
         <ItemMenu isOpen={isMenuOpen}>
           <Input placeholder="Busque por pratos ou ingredientes" searching />
-          <Item onClick={logout}><p>Sair</p></Item>
+          <Item onClick={logout}>
+            <p>Sair</p>
+          </Item>
         </ItemMenu>
       </Navbar>
       {!isMenuOpen ? (
@@ -47,10 +63,18 @@ export function Header() {
           <ExplorerIcon
             fill={theme.COLORS.CAKE["100"]}
             color={theme.COLORS.LIGHT["100"]}
+            margin="0"
             fontSize="2.1rem"
             width="2.0rem"
           />
-          <img src={Receipt} alt="" />
+          <InputSearching>
+            <Input searching />
+          </InputSearching>
+          <ReceiptImg onClick={moveToReceipt}>
+            <img src={Receipt} alt="" />
+            <p>Pedidos</p>
+            <span>({count})</span>
+          </ReceiptImg>
         </>
       ) : (
         <h2>Menu</h2>

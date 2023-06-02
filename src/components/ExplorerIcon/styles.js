@@ -5,6 +5,7 @@ export const Container = styled.div`
 
   margin-left: auto;
   margin-right: auto;
+  margin: ${(props) => props.margin};
   font-size: 3.5rem;
   display: flex;
   gap: 1.5rem;

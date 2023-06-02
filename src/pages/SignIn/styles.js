@@ -56,7 +56,7 @@ export const Fildset = styled.div`
     padding: 1rem;
     font-size: 1.6rem;
   }
-  @media (min-width: 767px) {
+  @media (min-width: ${({ theme }) => theme.SIZE.MEDIUM}) {
     width: 34.8rem;
     
     }

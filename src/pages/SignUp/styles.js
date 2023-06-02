@@ -34,7 +34,7 @@ export const Form = styled.form`
     text-decoration: none;
   }
 
-  @media (min-width: 767px) {
+  @media (min-width: ${({ theme }) => theme.SIZE.MEDIUM}) {
     width: 44.4rem;
     
     padding: 64px;
