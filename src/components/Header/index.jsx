@@ -25,7 +25,7 @@ import { useAuth } from "../../hooks/auth";
 import { useNavigate } from "react-router-dom";
 
 export function Header({ search }) {
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const { user, signOut } = useAuth();
@@ -84,7 +84,7 @@ export function Header({ search }) {
           <ReceiptImg onClick={moveToReceipt}>
             <img src={Receipt} alt="" />
             <p>Pedidos</p>
-            <span>({count})</span>
+            <span>(0)</span>
           </ReceiptImg>
           <SingOut>
             <img src={SignOut} onClick={logout} />

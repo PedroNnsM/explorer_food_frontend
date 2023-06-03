@@ -8,6 +8,7 @@ export const Container = styled.div`
   margin: ${(props) => props.margin};
   font-size: 3.5rem;
   display: flex;
+  align-items: center;
   gap: 1.5rem;
 `;
 export const IconText = styled.p`

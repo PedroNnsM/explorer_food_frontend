@@ -1,6 +1,6 @@
 export default {
   SIZE: {
-    SMALL: "250px",
+    SMALL: "380px",
     MEDIUM: "764px",
     LARGE: "1080px",
   },

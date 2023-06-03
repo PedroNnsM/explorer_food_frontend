@@ -13,6 +13,12 @@ export const Container = styled.header`
   > h2 {
     font-size: 2.4rem;
   }
+  @media (min-width: ${({ theme }) => theme.SIZE.MEDIUM}) {
+    padding:5.4rem 3.4rem 2.8rem;
+  }
+  @media (min-width: ${({ theme }) => theme.SIZE.LARGE}) {
+    padding:5.4rem 11.4rem 2.8rem;
+  }
 `;
 
 export const Navbar = styled.div`
