@@ -49,6 +49,7 @@ export const ItemMenu = styled.div`
   left: 0;
   bottom: 60px;
   z-index: 999;
+  background-color: ${({theme})=> theme.COLORS.DARK['400']};
   @media (min-width: ${({ theme }) => theme.SIZE.MEDIUM}) {
     display: none;
   }
