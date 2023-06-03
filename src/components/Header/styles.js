@@ -14,10 +14,10 @@ export const Container = styled.header`
     font-size: 2.4rem;
   }
   @media (min-width: ${({ theme }) => theme.SIZE.MEDIUM}) {
-    padding:5.4rem 3.4rem 2.8rem;
+    padding: 5.4rem 3.4rem 2.8rem;
   }
   @media (min-width: ${({ theme }) => theme.SIZE.LARGE}) {
-    padding:5.4rem 11.4rem 2.8rem;
+    padding: 5.4rem 11.4rem 2.8rem;
   }
 `;
 
@@ -66,26 +66,27 @@ export const Item = styled.div`
 `;
 
 export const Brand = styled.div`
-display: flex;
-flex-direction: column;
-align-items: end;
-> span{
-  color:${({ theme }) => theme.COLORS.CAKE["200"]};
-}
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  > span {
+    color: ${({ theme }) => theme.COLORS.CAKE["200"]};
+  }
 `;
 
 export const InputSearching = styled.div`
   display: none;
-  width: 40%;
+  width: 32%;
+  align-items: center;
   @media (min-width: ${({ theme }) => theme.SIZE.MEDIUM}) {
     display: block;
   }
   @media (min-width: ${({ theme }) => theme.SIZE.LARGE}) {
-    width: 50%;
+    width: 45%;
   }
 `;
 
-export const ReceiptImg = styled.div`
+export const HeaderButton = styled.div`
   > p {
     display: none;
   }
@@ -95,6 +96,8 @@ export const ReceiptImg = styled.div`
 
   @media (min-width: ${({ theme }) => theme.SIZE.MEDIUM}) {
     display: flex;
+    width: 21.6rem;
+    height: 56px;
     align-items: center;
     justify-content: center;
     gap: 4px;

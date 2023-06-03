@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import {
   Container,
@@ -9,7 +9,7 @@ import {
   Item,
   Brand,
   InputSearching,
-  ReceiptImg,
+  HeaderButton,
   SingOut,
 } from "./styles";
 import theme from "../../styles/theme";
@@ -41,8 +41,25 @@ export function Header({ search }) {
     setIsMenuOpen(!isMenuOpen);
   }
   function moveToReceipt() {
-    navigate("/receipt");
+    navigate("/pedido");
   }
+  function moveToNewDishes() {
+    navigate("/novo-prato");
+  }
+  useEffect(() => {
+    function handleResize() {
+      if (window.innerWidth > 762) {
+        setIsMenuOpen(false);
+      }
+    }
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   console.log(isMenuOpen);
   return (
@@ -61,6 +78,13 @@ export function Header({ search }) {
             searching
             onChange={(e) => search(e.target.value)}
           />
+          {isAdmin ? (
+            <Item onClick={moveToNewDishes}>
+              <p>Novo prato</p>
+            </Item>
+          ) : (
+            ""
+          )}
           <Item onClick={logout}>
             <p>Sair</p>
           </Item>
@@ -73,19 +97,29 @@ export function Header({ search }) {
               fill={theme.COLORS.CAKE["100"]}
               color={theme.COLORS.LIGHT["100"]}
               margin="0"
-              fontSize="2.1rem"
+              fontSize="clamp(1.1rem,2.1rem,2.3rem )"
               width="2.0rem"
             />
             {isAdmin ? <span>Admin</span> : ""}
           </Brand>
           <InputSearching>
-            <Input searching onChange={(e) => search(e.target.value)} />
+            <Input
+              searching
+              onChange={(e) => search(e.target.value)}
+              placeholder="Busque por pratos ou ingredientes"
+            />
           </InputSearching>
-          <ReceiptImg onClick={moveToReceipt}>
-            <img src={Receipt} alt="" />
-            <p>Pedidos</p>
-            <span>(0)</span>
-          </ReceiptImg>
+          {isAdmin ? (
+            <HeaderButton onClick={moveToNewDishes}>
+              <p>Novo prato</p>
+            </HeaderButton>
+          ) : (
+            <HeaderButton onClick={moveToReceipt}>
+              <img src={Receipt} alt="" />
+              <p>Pedidos</p>
+              <span>(0)</span>
+            </HeaderButton>
+          )}
           <SingOut>
             <img src={SignOut} onClick={logout} />
           </SingOut>
