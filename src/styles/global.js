@@ -26,6 +26,7 @@ export default createGlobalStyle`
   }
   p, spam, a {
     font-family: ${({ theme }) => theme.FONTS.TEXT};
+    font-weight: 100;
   }
   a {
     text-decoration: none;

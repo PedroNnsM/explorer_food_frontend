@@ -7,7 +7,7 @@ export const Container = styled.header`
   display: flex;
   gap: 16px;
   align-items: center;
-  justify-content: ${({ isOpen }) => (!isOpen ? "start" : "space-between")};
+  justify-content: space-between;
   padding: 5.4rem 2.8rem 2.4rem;
   background-color: ${theme.COLORS.DARK["700"]};
   > h2 {
@@ -20,6 +20,16 @@ export const Navbar = styled.div`
     display: none;
   }
 `;
+
+export const CloseButton = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  > h3 {
+    font-size: 24px;
+  }
+`;
+
 export const ItemMenu = styled.div`
   width: 100%;
   display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
@@ -48,11 +58,24 @@ export const Item = styled.div`
     font-weight: lighter;
   }
 `;
+
+export const Brand = styled.div`
+display: flex;
+flex-direction: column;
+align-items: end;
+> span{
+  color:${({ theme }) => theme.COLORS.CAKE["200"]};
+}
+`;
+
 export const InputSearching = styled.div`
   display: none;
-  width: 50%;
+  width: 40%;
   @media (min-width: ${({ theme }) => theme.SIZE.MEDIUM}) {
     display: block;
+  }
+  @media (min-width: ${({ theme }) => theme.SIZE.LARGE}) {
+    width: 50%;
   }
 `;
 
@@ -71,7 +94,7 @@ export const ReceiptImg = styled.div`
     gap: 4px;
     border-radius: 5px;
     background-color: ${({ theme }) => theme.COLORS.TOMATO["100"]};
-    padding: 8px 16px;
+    padding: 17px 32px;
     > p {
       display: block;
       font-size: 1.4rem;
@@ -80,5 +103,13 @@ export const ReceiptImg = styled.div`
       display: block;
       font-size: 1.4rem;
     }
+  }
+`;
+
+export const SingOut = styled.div`
+  display: none;
+
+  @media (min-width: ${({ theme }) => theme.SIZE.MEDIUM}) {
+    display: block;
   }
 `;
