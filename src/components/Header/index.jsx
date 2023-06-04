@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 
 import {
   Container,
+  Content,
   Navbar,
   CloseButton,
   ItemMenu,
@@ -64,6 +65,7 @@ export function Header({ search }) {
   console.log(isMenuOpen);
   return (
     <Container>
+    <Content>
       <Navbar>
         {!isMenuOpen ? (
           <GiHamburgerMenu size={24} onClick={toggleMenu} />
@@ -127,6 +129,7 @@ export function Header({ search }) {
       ) : (
         ""
       )}
+      </Content>
     </Container>
   );
 }

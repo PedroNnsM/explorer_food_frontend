@@ -2,12 +2,14 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const Container = styled.div`
-  height: 100vh;
   width: 100%;
+  height: 100vh;
+
   display: flex;
+  align-items: center;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  
   @media (min-width: 767px) {
     flex-direction: row;
     justify-content: space-between;
@@ -15,19 +17,20 @@ export const Container = styled.div`
 `;
 export const Form = styled.form`
   width: 31.6rem;
- margin: 0 auto;
+  margin: 0 auto;
 
   display: flex;
   gap: 3.2rem;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
   text-align: center;
+  flex-direction: column;
+  justify-content: center;
 
   > h1 {
     display: none;
-    font-size: 3.2rem;
     margin-bottom: 3.2rem;
+  
+    font-size: 3.2rem;
   }
 
   > a {
@@ -36,9 +39,10 @@ export const Form = styled.form`
 
   @media (min-width: 767px) {
     width: 44.4rem;
-    
     padding: 64px;
+
     background-color: ${({ theme }) => theme.COLORS.DARK["700"]};
+  
     > h1 {
       display: block;
     }
@@ -47,24 +51,27 @@ export const Form = styled.form`
 
 export const Fildset = styled.div`
   width: 31.6rem;
-  display: flex;
   
+  display: flex;
   flex-direction: column;
+
   > label {
     width: 100%;
-    text-align: start;
     padding: 1rem;
+  
+    text-align: start;
     font-size: 1.6rem;
   }
+
   @media (min-width: ${({ theme }) => theme.SIZE.MEDIUM}) {
     width: 34.8rem;
-    
-    }
+  }
 `;
 
 export const StyledLink = styled(Link)`
+  width: 31.6rem;
   margin-top: 3.2rem;
+  
   color: ${({ theme }) => theme.COLORS.LIGHT["100"]};
   font-size: 1.4rem;
-  width: 31.6rem;
 `;
