@@ -110,6 +110,7 @@ export const InputSearching = styled.div`
   }
 `;
 export const HeaderButton = styled.div`
+  cursor: pointer;
   > p {
     display: none;
   }

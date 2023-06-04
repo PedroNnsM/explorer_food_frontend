@@ -13,6 +13,26 @@ export const Container = styled.div`
   border: 1px solid ${({ theme }) => theme.COLORS.DARK["900"]};
   border-radius: 5px;
 
+  > input[type="file"] {
+    position: absolute;
+
+    opacity: 0;
+  }
+
+  .uploadIcon {
+    margin: 0 8px 0 32px;
+  }
+
+  > label {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 56px;
+    padding: 12px 0;
+    font-size: 1.4rem;
+    font-weight: 500;
+  }
+
   > svg {
     margin: 0 16px;
   }
@@ -24,7 +44,7 @@ export const Container = styled.div`
 
     color: ${({ theme }) => theme.COLORS.LIGHT["100"]};
     background-color: transparent;
-    
+
     border: 0;
 
     &:placeholder {

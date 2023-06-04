@@ -15,8 +15,9 @@ import {
 } from "./styles";
 import theme from "../../styles/theme";
 
-import { Input } from "../Input";
 import { ExplorerIcon } from "../ExplorerIcon";
+import { Input } from "../Input";
+
 import Receipt from "../../assets/Receipt.svg";
 import SignOut from "../../assets/SignOut.svg";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -31,7 +32,7 @@ export function Header({ search }) {
 
   const { user, signOut } = useAuth();
   const isAdmin = user.admin;
-  const navigate = useNavigate;
+  const navigate = useNavigate();
 
   function logout() {
     signOut();
@@ -41,12 +42,15 @@ export function Header({ search }) {
   function toggleMenu() {
     setIsMenuOpen(!isMenuOpen);
   }
+
   function moveToReceipt() {
     navigate("/pedido");
   }
+
   function moveToNewDishes() {
     navigate("/novo-prato");
   }
+
   useEffect(() => {
     function handleResize() {
       if (window.innerWidth > 762) {
@@ -65,70 +69,70 @@ export function Header({ search }) {
   console.log(isMenuOpen);
   return (
     <Container>
-    <Content>
-      <Navbar>
-        {!isMenuOpen ? (
-          <GiHamburgerMenu size={24} onClick={toggleMenu} />
-        ) : (
-          <CloseButton>
-            <AiOutlineClose size={24} onClick={toggleMenu} /> <h3>Menu</h3>
-          </CloseButton>
-        )}
-        <ItemMenu isOpen={isMenuOpen}>
-          <Input
-            placeholder="Busque por pratos ou ingredientes"
-            searching
-            onChange={(e) => search(e.target.value)}
-          />
-          {isAdmin ? (
-            <Item onClick={moveToNewDishes}>
-              <p>Novo prato</p>
-            </Item>
+      <Content>
+        <Navbar>
+          {!isMenuOpen ? (
+            <GiHamburgerMenu size={24} onClick={toggleMenu} />
           ) : (
-            ""
+            <CloseButton>
+              <AiOutlineClose size={24} onClick={toggleMenu} /> <h3>Menu</h3>
+            </CloseButton>
           )}
-          <Item onClick={logout}>
-            <p>Sair</p>
-          </Item>
-        </ItemMenu>
-      </Navbar>
-      {!isMenuOpen ? (
-        <>
-          <Brand>
-            <ExplorerIcon
-              fill={theme.COLORS.CAKE["100"]}
-              color={theme.COLORS.LIGHT["100"]}
-              margin="0"
-              fontSize="clamp(1.1rem,2.1rem,2.3rem )"
-              width="2.0rem"
-            />
-            {isAdmin ? <span>Admin</span> : ""}
-          </Brand>
-          <InputSearching>
+          <ItemMenu isOpen={isMenuOpen}>
             <Input
+              placeholder="Busque por pratos ou ingredientes"
               searching
               onChange={(e) => search(e.target.value)}
-              placeholder="Busque por pratos ou ingredientes"
             />
-          </InputSearching>
-          {isAdmin ? (
-            <HeaderButton onClick={moveToNewDishes}>
-              <p>Novo prato</p>
-            </HeaderButton>
-          ) : (
-            <HeaderButton onClick={moveToReceipt}>
-              <img src={Receipt} alt="" />
-              <p>Pedidos</p>
-              <span>(0)</span>
-            </HeaderButton>
-          )}
-          <SingOut>
-            <img src={SignOut} onClick={logout} />
-          </SingOut>
-        </>
-      ) : (
-        ""
-      )}
+            {isAdmin ? (
+              <Item onClick={moveToNewDishes}>
+                <p>Novo prato</p>
+              </Item>
+            ) : (
+              ""
+            )}
+            <Item onClick={logout}>
+              <p>Sair</p>
+            </Item>
+          </ItemMenu>
+        </Navbar>
+        {!isMenuOpen ? (
+          <>
+            <Brand>
+              <ExplorerIcon
+                fill={theme.COLORS.CAKE["100"]}
+                color={theme.COLORS.LIGHT["100"]}
+                margin="0"
+                fontSize="clamp(1.1rem,2.1rem,2.3rem )"
+                width="2.0rem"
+              />
+              {isAdmin ? <span>Admin</span> : ""}
+            </Brand>
+            <InputSearching>
+              <Input
+                searching
+                onChange={(e) => search(e.target.value)}
+                placeholder="Busque por pratos ou ingredientes"
+              />
+            </InputSearching>
+            {isAdmin ? (
+              <HeaderButton onClick={moveToNewDishes}>
+                <p>Novo prato</p>
+              </HeaderButton>
+            ) : (
+              <HeaderButton onClick={moveToReceipt}>
+                <img src={Receipt} alt="" />
+                <p>Pedidos</p>
+                <span>(0)</span>
+              </HeaderButton>
+            )}
+            <SingOut>
+              <img src={SignOut} onClick={logout} />
+            </SingOut>
+          </>
+        ) : (
+          ""
+        )}
       </Content>
     </Container>
   );
