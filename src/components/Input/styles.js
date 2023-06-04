@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
+  height: 5.5rem;
+  position: relative;
   margin-bottom: 8px;
 
   display: flex;
@@ -15,22 +17,12 @@ export const Container = styled.div`
 
   > input[type="file"] {
     position: absolute;
-
+    width: 1px;
     opacity: 0;
   }
 
   .uploadIcon {
     margin: 0 8px 0 32px;
-  }
-
-  > label {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    height: 56px;
-    padding: 12px 0;
-    font-size: 1.4rem;
-    font-weight: 500;
   }
 
   > svg {

@@ -4,6 +4,7 @@ import { Container, Content, Form, Fildset } from "./styles";
 
 import { Footer } from "../../components/Footer";
 import { SlArrowLeft } from "react-icons/sl";
+import { FiUpload } from "react-icons/fi";
 
 import { api } from "../../services/api";
 import { Input } from "../../components/Input";
@@ -19,6 +20,11 @@ export function NewDishe() {
   const [dishes, setDishes] = useState([]);
   const [search, setSearch] = useState("");
 
+
+  const handleSelectImg = (e) => {
+    setImg(e.target.files[0]) 
+
+  }
   useEffect(() => {
     async function fetchDishes() {
       const response = await api.get(
@@ -40,36 +46,38 @@ export function NewDishe() {
         </div>
         <h3>Novo prato</h3>
         <Form>
-          <div>
-            <Fildset>
-              <label htmlFor="img">Imagem do prato</label>
-              <Input
-                placeholder="Digite seu nome"
-                type="file"
-                file
-                id={img}
-                onChange={(e) => setImg(e.target.value)}
-              />
-            </Fildset>
-            <Fildset>
-              <label htmlFor="name">Nome do prato</label>
-              <Input
-                placeholder="Ex.: Salada Ceasar"
-                type="text"
-                id={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-            </Fildset>
-            <Fildset>
-              <label htmlFor="category">Cetegoria</label>
-              <Input
-                placeholder="Digite seu nome"
-                type="text"
-                id={category}
-                onChange={(e) => setCategory(e.target.value)}
-              />
-            </Fildset>
-          </div>
+          <Fildset>
+            <p className="labelImgPlate">Imagem do prato</p>
+            <label htmlFor="imgPlate" className="labelImg" >
+              <FiUpload size={24}  /> Selecione imagem
+            </label>
+            <Input
+              type="file"
+              id="imgPlate"
+              name="imgPlate"
+              onChange={handleSelectImg}
+              accept="image/png, image/jpeg"
+            />
+          </Fildset>
+          <Fildset>
+            <label htmlFor="name">Nome</label>
+            <Input
+              placeholder="Ex.: Salada Ceasar"
+              type="text"
+              id={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </Fildset>
+          <Fildset>
+            <label htmlFor="category">Cetegoria</label>
+            <Input
+              placeholder="Digite seu nome"
+              type="text"
+              select
+              id={category}
+              onChange={(e) => setCategory(e.target.value)}
+            />
+          </Fildset>
         </Form>
       </Content>
       <Footer />

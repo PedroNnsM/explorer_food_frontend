@@ -72,15 +72,18 @@ export const Banner = styled.div`
   }
 
   h3 {
-    font-weight: bold;
-    line-height: 140%;
+    font-weight: 500;
+    font-family: ${({ theme }) => theme.FONTS.TEXT};
     font-size: clamp(1.4rem, 1.7rem, 2rem);
   }
 
   p {
-    font-weight: thin;
-    line-height: 140%;
+    margin-top: 3px;
+
+    font-weight: normal;
+    font-family: ${({ theme }) => theme.FONTS.TITLE};
     font-size: 1.2rem;
+    color: ${({ theme }) => theme.COLORS.LIGHT["300"]};
   }
   @media (min-width: ${({ theme }) => theme.SIZE.MEDIUM}) {
     width: 90%;
@@ -89,7 +92,10 @@ export const Banner = styled.div`
     margin-top: 12.4rem;
 
     > div {
+      display: flex;
+      gap: 8px;
       text-align: center;
+      flex-direction: column;
     }
 
     .imgMobile {
@@ -103,11 +109,13 @@ export const Banner = styled.div`
     }
 
     h3 {
-      font-size: 4.1rem;
+      line-height: 56px;
+      font-size: 40px;
     }
     p {
-      font-size: 1.6rem;
-      font-weight: 300;
+      line-height: 16px;
+      font-size: 16px;
+      font-weight: 400;
     }
   }
 `;

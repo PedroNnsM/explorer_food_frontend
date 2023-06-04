@@ -25,8 +25,16 @@ export function Home() {
     <Container>
       <Header search={setSearch} />
       <Banner>
-        <img className="imgMobile" src={bannerImgMobile} alt="Macarons cloridos e frutas caindo no ar" />
-        <img className="imgDesketop" src={bannerImgDesktop} alt="Macarons cloridos e frutas caindo no ar" />
+        <img
+          className="imgMobile"
+          src={bannerImgMobile}
+          alt="Macarons cloridos e frutas caindo no ar"
+        />
+        <img
+          className="imgDesketop"
+          src={bannerImgDesktop}
+          alt="Macarons cloridos e frutas caindo no ar"
+        />
         <div>
           <h3>Sabores inigualáveis</h3>
           <p>Sinta o cuidado do preparo com ingredientes selecionados.</p>

@@ -6,6 +6,7 @@ export const Container = styled.div`
   height: 100%;
 
   display: flex;
+  gap: 24px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -28,12 +29,29 @@ export const Form = styled.form`
   margin: 0 auto;
 
   display: flex;
-  gap: 3.2rem;
+  gap: 24px;
   text-align: center;
   align-items: center;
   flex-direction: column;
   justify-content: center;
 
+  .uploadIcon {
+    margin: 0 8px 0 32px;
+  }
+
+  .labelImg {
+    background-color: transparent;
+    position: absolute;
+    width: 250px;
+    top: 46%;
+    height: 35px;
+    z-index: 99;
+    gap: 8px;
+    margin-left: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
   > h1 {
     display: none;
     font-size: 3.2rem;
@@ -46,9 +64,6 @@ export const Form = styled.form`
 
   @media (min-width: ${({ theme }) => theme.SIZE.MEDIUM}) {
     width: 44.4rem;
-    padding: 64px;
-
-    background-color: ${({ theme }) => theme.COLORS.DARK["700"]};
 
     > h1 {
       display: block;
@@ -59,18 +74,20 @@ export const Form = styled.form`
 export const Fildset = styled.div`
   width: 31.6rem;
   display: flex;
-
+  gap: 16px;
   flex-direction: column;
 
-  > label {
+  > label,
+  .labelImgPlate {
     width: 100%;
-    padding: 1rem;
 
+    font-weight: 400;
     text-align: start;
     font-size: 1.6rem;
+    color: ${({ theme }) => theme.COLORS.LIGHT["400"]};
+    font-family: ${({ theme }) => theme.FONTS.TITLE} ;
   }
 
   @media (min-width: 767px) {
-    width: 34.8rem;
   }
 `;

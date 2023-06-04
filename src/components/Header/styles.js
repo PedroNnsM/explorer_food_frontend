@@ -72,14 +72,16 @@ export const ItemMenu = styled.div`
 `;
 
 export const Item = styled.div`
-  margin-bottom: 10px;
-  padding: 8px;
+  padding: 10px;
 
   font-size: 2.4rem;
 
-  border-bottom: 1px solid ${({ theme }) => theme.COLORS.LIGHT["700"]};
+  border-bottom: 1px solid ${({ theme }) => theme.COLORS.DARK["1000"]};
+
+  cursor: pointer;
 
   > p {
+    line-height: 33.6px;
     font: ${({ theme }) => theme.FONTS.TEXT};
     font-weight: lighter;
   }
@@ -135,6 +137,7 @@ export const HeaderButton = styled.div`
     > p {
       display: block;
       font-size: 1.4rem;
+      font-weight: 500;
     }
 
     > span {

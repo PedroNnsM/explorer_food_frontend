@@ -8,11 +8,11 @@ export const Container = styled.div`
 
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 8px;
   
   font-size: 3.5rem;
 `;
-export const IconText = styled.p`
+export const IconText = styled.span`
   color: ${(props) => props.color};
   font-size: ${(props) => props.fontSize};
   font-weight: 700;
