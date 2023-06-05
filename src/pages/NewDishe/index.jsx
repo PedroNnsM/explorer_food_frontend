@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 import { Header } from "../../components/Header";
-import { Container, Content, Form, Fildset } from "./styles";
+import { Container, Content, TextTop, Form, Fildset } from "./styles";
 
 import { Footer } from "../../components/Footer";
 import { SlArrowLeft } from "react-icons/sl";
 import { FiUpload } from "react-icons/fi";
+import { RiArrowDownSLine } from "react-icons/ri";
 
 import { api } from "../../services/api";
 import { Input } from "../../components/Input";
+import { useNavigate } from "react-router-dom";
 
 export function NewDishe() {
   const [img, setImg] = useState("");
@@ -20,11 +22,19 @@ export function NewDishe() {
   const [dishes, setDishes] = useState([]);
   const [search, setSearch] = useState("");
 
+  const navigate = useNavigate();
+  const handleGoBack = () => {
+    navigate(-1);
+  };
 
   const handleSelectImg = (e) => {
-    setImg(e.target.files[0]) 
+    setImg(e.target.files[0]);
+  };
 
-  }
+  const handleSelectChange = (event) => {
+    setCategory(event.target.value);
+  };
+
   useEffect(() => {
     async function fetchDishes() {
       const response = await api.get(
@@ -39,18 +49,16 @@ export function NewDishe() {
     <Container>
       <Header search={setSearch} />
       <Content>
-        <div>
-          <div>
-            <SlArrowLeft /> <p>Voltar</p>
-          </div>
-        </div>
-        <h3>Novo prato</h3>
+        <TextTop onClick={handleGoBack}>
+          <SlArrowLeft /> <span>Voltar</span>
+        </TextTop>
+        <TextTop>
+          <h3>Novo prato</h3>
+        </TextTop>
         <Form>
           <Fildset>
             <p className="labelImgPlate">Imagem do prato</p>
-            <label htmlFor="imgPlate" className="labelImg" >
-              <FiUpload size={24}  /> Selecione imagem
-            </label>
+
             <Input
               type="file"
               id="imgPlate"
@@ -58,6 +66,9 @@ export function NewDishe() {
               onChange={handleSelectImg}
               accept="image/png, image/jpeg"
             />
+            <label htmlFor="imgPlate" className="labelImg">
+              <FiUpload size={24} /> Selecione imagem
+            </label>
           </Fildset>
           <Fildset>
             <label htmlFor="name">Nome</label>
@@ -70,13 +81,17 @@ export function NewDishe() {
           </Fildset>
           <Fildset>
             <label htmlFor="category">Cetegoria</label>
-            <Input
-              placeholder="Digite seu nome"
-              type="text"
-              select
-              id={category}
-              onChange={(e) => setCategory(e.target.value)}
-            />
+            <select
+              id="category"
+              value={category}
+              onChange={handleSelectChange}
+            >
+              <option value="">Selecione...</option>
+              <option value="Meal">Refeição</option>
+              <option value="Dessert">Sobremesa</option>
+              <option value="Drink">Bebida</option>
+            </select>
+            <RiArrowDownSLine size={24} />
           </Fildset>
         </Form>
       </Content>

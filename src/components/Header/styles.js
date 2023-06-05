@@ -88,12 +88,18 @@ export const Item = styled.div`
 `;
 
 export const Brand = styled.div`
+  font-size: 12px;
   display: flex;
-  flex-direction: column;
-  align-items: end;
+  gap: 8px;
+  align-items: center;
 
   > span {
     color: ${({ theme }) => theme.COLORS.CAKE["200"]};
+  }
+  @media (min-width: ${({ theme }) => theme.SIZE.MEDIUM}) {
+    flex-direction: column;
+    gap: 0px;
+    align-items: end;
   }
 `;
 

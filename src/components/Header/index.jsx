@@ -106,7 +106,7 @@ export function Header({ search }) {
                 fontSize="clamp(1.1rem,2.1rem,2.3rem )"
                 width="2.0rem"
               />
-              {isAdmin ? <span>Admin</span> : ""}
+              {isAdmin ? <span>admin</span> : ""}
             </Brand>
             <InputSearching>
               <Input

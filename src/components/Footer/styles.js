@@ -2,9 +2,7 @@ import styled from "styled-components";
 import theme from "../../styles/theme";
 
 export const Container = styled.footer`
-  position: fixed;
-  bottom: 0;
-  left: 0;
+  margin-top: auto;
   width: 100%;
 
   display: flex;
