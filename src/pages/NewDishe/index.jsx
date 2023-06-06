@@ -12,6 +12,7 @@ import { Input } from "../../components/Input";
 import { useNavigate } from "react-router-dom";
 import { IngredientsItem } from "../../components/IngredientsItem";
 import { Section } from "../../components/Section";
+import { Textarea } from "../../components/Textarea";
 
 export function NewDishe() {
   const [img, setImg] = useState("");
@@ -61,7 +62,7 @@ export function NewDishe() {
     }
     fetchDishes();
   }, [dishes, search]);
-console.log(price)
+  console.log(price);
   return (
     <Container>
       <Header search={setSearch} />
@@ -128,10 +129,16 @@ console.log(price)
             <p className="price">R$</p>
             <Input
               type="number"
-              placeholder='00,00'
-              className='priceInput'
-              id='price'
+              placeholder="00,00"
+              className="priceInput"
+              id="price"
               onChange={(e) => setPrice(e.target.value)}
+            />
+          </Section>
+          <Section title="Descrição">
+            <Textarea
+              placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
+              onChange={(e) => setDescription(e.target.value)}
             />
           </Section>
         </Form>

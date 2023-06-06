@@ -16,7 +16,7 @@ export const Container = styled.div`
 export const Content = styled.main`
   max-width: 1120px;
   width: 90%;
-  height: 100vh;
+  height: 100%;
 
   display: flex;
   flex-direction: column;
@@ -63,7 +63,7 @@ export const TextTop = styled.div`
 
 export const Form = styled.form`
   width: 100%;
-
+  margin-bottom: 25px;
   display: flex;
   gap: 24px;
   text-align: center;
@@ -83,6 +83,7 @@ export const Form = styled.form`
 
   .priceInput {
     font-weight: 400;
+    font-size: 16px;
     padding-left: 35px;
     color: ${({ theme }) => theme.COLORS.LIGHT["500"]};
   }
