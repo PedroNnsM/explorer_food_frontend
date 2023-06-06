@@ -66,7 +66,6 @@ export function Header({ search }) {
     };
   }, []);
 
-  console.log(isMenuOpen);
   return (
     <Container>
       <Content>

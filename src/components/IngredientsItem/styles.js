@@ -2,43 +2,42 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  align-items: center;
+ 
+  width: 30%;
 
   background-color: ${({ theme, isNew }) =>
-    isNew ? "transparent" : theme.COLORS.BACKGROUND_900};
-  color: ${({ theme }) => theme.COLORS.GRAY_300};
+    isNew ? "transparent" : theme.COLORS.LIGHT["600"]};
+  color: ${({ theme }) => theme.COLORS.LIGHT["100"]};
 
   border: ${({ theme, isNew }) =>
-    isNew ? `1px dashed ${theme.COLORS.GRAY_300}` : "none"};
+    isNew ? `1px dashed ${theme.COLORS.LIGHT["500"]}` : "none"};
 
-  margin-bottom: 8px;
-  border-radius: 10px;
-  padding-right: 16px;
+  border-radius: 5px;
+  padding: 5px 16px;
 
   > button {
+    margin:0;
+    padding: 0;
     border: none;
     background: none;
   }
-
   .button-delete {
-    color: ${({ theme }) => theme.COLORS.RED};
+    color: ${({ theme }) => theme.COLORS.LIGHT["100"]};
   }
   .button-add {
-    color: ${({ theme }) => theme.COLORS.ORANGE};
+    color: ${({ theme }) => theme.COLORS.LIGHT["100"]};
   }
 
   > input {
-    height: 56px;
-    width: 100%;
-
-    padding: 12px;
-
-    color: ${({ theme }) => theme.COLORS.WHITE};
+    width:90%;
+    font-size: 16px;
+    font-weight: 400;
+    color: ${({ theme }) => theme.COLORS.LIGHT["100"]};
     background: transparent;
     border: none;
 
     &::placeholder {
-      color: ${({ theme }) => theme.COLORS.GRAY_300};
+      color: ${({ theme }) => theme.COLORS.LIGHT["500"]};
     }
   }
 `;

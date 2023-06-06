@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Header } from "../../components/Header";
-import { Container, Content, TextTop, Form, Fildset } from "./styles";
+import { Container, Content, TextTop, Form } from "./styles";
 
 import { Footer } from "../../components/Footer";
 import { SlArrowLeft } from "react-icons/sl";
@@ -10,12 +10,17 @@ import { RiArrowDownSLine } from "react-icons/ri";
 import { api } from "../../services/api";
 import { Input } from "../../components/Input";
 import { useNavigate } from "react-router-dom";
+import { IngredientsItem } from "../../components/IngredientsItem";
+import { Section } from "../../components/Section";
 
 export function NewDishe() {
   const [img, setImg] = useState("");
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
-  const [ingredients, setIngredients] = useState("");
+
+  const [ingredients, setIngredients] = useState([]);
+  const [newIngredient, setnewIngredient] = useState("");
+
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
 
@@ -35,6 +40,17 @@ export function NewDishe() {
     setCategory(event.target.value);
   };
 
+  function handleAddIngredient() {
+    setIngredients((prevState) => [...prevState, newIngredient]);
+    setnewIngredient("");
+  }
+
+  function handleRemoveTag(deleted) {
+    setIngredients((prevState) =>
+      prevState.filter((ingredient) => ingredient !== deleted)
+    );
+  }
+
   useEffect(() => {
     async function fetchDishes() {
       const response = await api.get(
@@ -45,6 +61,7 @@ export function NewDishe() {
     }
     fetchDishes();
   }, [dishes, search]);
+console.log(price)
   return (
     <Container>
       <Header search={setSearch} />
@@ -56,9 +73,7 @@ export function NewDishe() {
           <h3>Novo prato</h3>
         </TextTop>
         <Form>
-          <Fildset>
-            <p className="labelImgPlate">Imagem do prato</p>
-
+          <Section title="Imagem do prato">
             <Input
               type="file"
               id="imgPlate"
@@ -69,18 +84,16 @@ export function NewDishe() {
             <label htmlFor="imgPlate" className="labelImg">
               <FiUpload size={24} /> Selecione imagem
             </label>
-          </Fildset>
-          <Fildset>
-            <label htmlFor="name">Nome</label>
+          </Section>
+          <Section title="Nome">
             <Input
               placeholder="Ex.: Salada Ceasar"
               type="text"
               id={name}
               onChange={(e) => setName(e.target.value)}
             />
-          </Fildset>
-          <Fildset>
-            <label htmlFor="category">Cetegoria</label>
+          </Section>
+          <Section title="Cetegoria">
             <select
               id="category"
               value={category}
@@ -92,7 +105,35 @@ export function NewDishe() {
               <option value="Drink">Bebida</option>
             </select>
             <RiArrowDownSLine size={24} />
-          </Fildset>
+          </Section>
+          <Section title="Ingredientes">
+            <div className="Ingredients">
+              {ingredients.map((Ingredient, index) => (
+                <IngredientsItem
+                  key={String(index)}
+                  value={Ingredient}
+                  onClick={() => handleRemoveTag(Ingredient)}
+                />
+              ))}
+              <IngredientsItem
+                isNew
+                placeholder="Adicionar "
+                onChange={(e) => setnewIngredient(e.target.value)}
+                value={newIngredient}
+                onClick={handleAddIngredient}
+              />
+            </div>
+          </Section>
+          <Section title="Preço">
+            <p className="price">R$</p>
+            <Input
+              type="number"
+              placeholder='00,00'
+              className='priceInput'
+              id='price'
+              onChange={(e) => setPrice(e.target.value)}
+            />
+          </Section>
         </Form>
       </Content>
       <Footer />

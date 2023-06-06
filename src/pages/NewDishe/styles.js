@@ -13,7 +13,7 @@ export const Container = styled.div`
   overflow-y: auto;
 `;
 
-export const Content = styled.div`
+export const Content = styled.main`
   max-width: 1120px;
   width: 90%;
   height: 100vh;
@@ -22,6 +22,18 @@ export const Content = styled.div`
   flex-direction: column;
   gap: 16px;
   justify-content: flex-start;
+
+  .Ingredients {
+    border-radius: 5px;
+    padding: 12px;
+    background-color: ${({ theme }) => theme.COLORS.DARK["900"]};
+
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
 `;
 
 export const TextTop = styled.div`
@@ -58,6 +70,28 @@ export const Form = styled.form`
   align-items: center;
   flex-direction: column;
   justify-content: center;
+
+  p.price {
+    position: absolute;
+    z-index: 12;
+    left: 12px;
+    bottom: 24px;
+    font-size: 16px;
+    font-weight: 400;
+    color: ${({ theme }) => theme.COLORS.LIGHT["500"]};
+  }
+
+  .priceInput {
+    font-weight: 400;
+    padding-left: 35px;
+    color: ${({ theme }) => theme.COLORS.LIGHT["500"]};
+  }
+
+  .priceInput::-webkit-inner-spin-button,
+  .priceInput::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 
   .uploadIcon {
     margin: 0 8px 0 32px;
@@ -100,68 +134,68 @@ export const Form = styled.form`
   }
 `;
 
-export const Fildset = styled.div`
-  position: relative;
-  width: 100%;
+// export const Section = styled.div`
+//   position: relative;
+//   width: 100%;
 
-  display: flex;
-  gap: 16px;
-  flex-direction: column;
+//   display: flex;
+//   gap: 16px;
+//   flex-direction: column;
 
-  > label,
-  .labelImgPlate {
-    width: 100%;
+//   > label,
+//   .labelImgPlate {
+//     width: 100%;
 
-    text-align: start;
-    font-weight: 400;
-    font-size: 1.6rem;
-    font-family: ${({ theme }) => theme.FONTS.TITLE};
-    color: ${({ theme }) => theme.COLORS.LIGHT["400"]};
-  }
+//     text-align: start;
+//     font-weight: 400;
+//     font-size: 1.6rem;
+//     font-family: ${({ theme }) => theme.FONTS.TITLE};
+//     color: ${({ theme }) => theme.COLORS.LIGHT["400"]};
+//   }
 
-  .labelImgPlate {
-    cursor: pointer;
-  }
+//   .labelImgPlate {
+//     cursor: pointer;
+//   }
 
-  > select {
-    position: relative;
-    cursor: pointer;
-    padding: 13px 16px;
-    height: 56px;
+//   > select {
+//     position: relative;
+//     cursor: pointer;
+//     padding: 13px 16px;
+//     height: 56px;
 
-    border-radius: 5px;
-    background-color: ${({ theme }) => theme.COLORS.DARK["900"]};
-    border: none;
+//     border-radius: 5px;
+//     background-color: ${({ theme }) => theme.COLORS.DARK["900"]};
+//     border: none;
 
-    font-size: 14px;
-    font-weight: 400;
+//     font-size: 14px;
+//     font-weight: 400;
 
-    color: ${({ theme }) => theme.COLORS.LIGHT["400"]};
+//     color: ${({ theme }) => theme.COLORS.LIGHT["400"]};
 
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -ms-appearance: none;
-    -o-appearance: none;
+//     appearance: none;
+//     -webkit-appearance: none;
+//     -moz-appearance: none;
+//     -ms-appearance: none;
+//     -o-appearance: none;
 
-    &:focus-visible {
-      outline: none;
-    }
-  }
+//     &:focus-visible {
+//       outline: none;
+//     }
+//   }
 
-  > select option {
-    color: ${({theme}) => theme.COLORS.LIGHT['300']};
-    background-color: ${({theme}) => theme.COLORS.DARK['900']};
-    font-size: 16px;
-    outline: none;
-  }
+//   > select option {
+//     color: ${({theme}) => theme.COLORS.LIGHT['300']};
+//     background-color: ${({theme}) => theme.COLORS.DARK['900']};
+//     font-size: 16px;
+//     outline: none;
+//   }
 
-  > select +  svg {
-    position: absolute;
-    right: 16px;
-    top: 55px;
-  }
+//   > select +  svg {
+//     position: absolute;
+//     right: 16px;
+//     top: 55px;
+//   }
 
-  @media (min-width: 767px) {
-  }
-`;
+//   @media (min-width: 767px) {
+//   }
+// `;
