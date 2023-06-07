@@ -88,7 +88,7 @@ export function Header({ search }) {
                 <p>Novo prato</p>
               </Item>
             ) : (
-              ""
+              null
             )}
             <Item onClick={logout}>
               <p>Sair</p>

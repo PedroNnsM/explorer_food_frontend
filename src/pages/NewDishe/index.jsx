@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 import { IngredientsItem } from "../../components/IngredientsItem";
 import { Section } from "../../components/Section";
 import { Textarea } from "../../components/Textarea";
+import { Button } from "../../components/Button";
 
 export function NewDishe() {
   const [img, setImg] = useState("");
@@ -82,9 +83,9 @@ export function NewDishe() {
               onChange={handleSelectImg}
               accept="image/png, image/jpeg"
             />
-            <label htmlFor="imgPlate" className="labelImg">
-              <FiUpload size={24} /> Selecione imagem
-            </label>
+            <div  className="labelImg">
+              <FiUpload size={24} /> <label htmlFor="imgPlate">Selecione imagem</label>
+            </div>
           </Section>
           <Section title="Nome">
             <Input
@@ -141,6 +142,7 @@ export function NewDishe() {
               onChange={(e) => setDescription(e.target.value)}
             />
           </Section>
+          <Button > Salvar</Button>
         </Form>
       </Content>
       <Footer />

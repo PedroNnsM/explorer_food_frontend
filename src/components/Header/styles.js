@@ -32,6 +32,9 @@ export const Content = styled.div`
 `;
 
 export const Navbar = styled.div`
+  > svg {
+    cursor: pointer;
+  }
   @media (min-width: ${({ theme }) => theme.SIZE.MEDIUM}) {
     display: none;
   }
@@ -41,9 +44,13 @@ export const CloseButton = styled.div`
   display: flex;
   gap: 8px;
   align-items: center;
+  > svg {
+    cursor: pointer;
+  }
 
   > h3 {
     font-size: 24px;
+    cursor: default;
   }
 `;
 
