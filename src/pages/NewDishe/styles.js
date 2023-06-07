@@ -113,7 +113,7 @@ export const Form = styled.form`
     gap: 8px;
     align-items: center;
     justify-content: flex-start;
-    
+    transform: translateX(-50%) translateY(-50%);
     background-color: transparent;
     font-size: 14px;
     font-weight: 400;

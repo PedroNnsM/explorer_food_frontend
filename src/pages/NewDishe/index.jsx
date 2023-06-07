@@ -23,20 +23,23 @@ export function NewDishe() {
   const [ingredients, setIngredients] = useState([]);
   const [newIngredient, setnewIngredient] = useState("");
 
-  const [price, setPrice] = useState("");
+  const [price, setPrice] = useState();
   const [description, setDescription] = useState("");
 
   const [dishes, setDishes] = useState([]);
   const [search, setSearch] = useState("");
 
+  
+
   const navigate = useNavigate();
-  const handleGoBack = () => {
+  const handleBack = () => {
     navigate(-1);
   };
 
-  const handleSelectImg = (e) => {
-    setImg(e.target.files[0]);
-  };
+  function handleSelectImg(event) {
+    const file = event.target.files[0];
+    setImg(file);
+  }
 
   const handleSelectChange = (event) => {
     setCategory(event.target.value);
@@ -63,12 +66,44 @@ export function NewDishe() {
     }
     fetchDishes();
   }, [dishes, search]);
-  console.log(price);
+
+  async function handleNewDishe() {
+    if (!img) {
+      return alert("Adicione a imagem do prato");
+    }
+    if (!name) {
+      return alert("Digite o nome do prato");
+    }
+    if (newIngredient) {
+      return alert(
+        "Você deixou um ingrediente no campo adicionar, mas não clicou no botão em adicionar. Clique para adicionar ou deixe o campo vazio."
+      );
+    }
+    if (!price) {
+      return alert("Digite o preço do prato");
+    }
+    if (!description) {
+      return alert("Digite a descrição do prato");
+    }
+
+    await api.post("/dishes", {
+      img,
+      name,
+      category,
+      ingredients,
+      price,
+      description,
+    });
+
+    alert("Prato criado com sucesso");
+    handleBack();
+  }
+  console.log(img);
   return (
     <Container>
       <Header search={setSearch} />
       <Content>
-        <TextTop onClick={handleGoBack}>
+        <TextTop onClick={handleBack}>
           <SlArrowLeft /> <span>Voltar</span>
         </TextTop>
         <TextTop>
@@ -83,8 +118,9 @@ export function NewDishe() {
               onChange={handleSelectImg}
               accept="image/png, image/jpeg"
             />
-            <div  className="labelImg">
-              <FiUpload size={24} /> <label htmlFor="imgPlate">Selecione imagem</label>
+            <div className="labelImg">
+              <FiUpload size={24} />{" "}
+              <label htmlFor="imgPlate">Selecione imagem</label>
             </div>
           </Section>
           <Section title="Nome">
@@ -142,7 +178,7 @@ export function NewDishe() {
               onChange={(e) => setDescription(e.target.value)}
             />
           </Section>
-          <Button > Salvar</Button>
+          <Button title="Salvar alterações" forms onClick={handleNewDishe} />
         </Form>
       </Content>
       <Footer />
