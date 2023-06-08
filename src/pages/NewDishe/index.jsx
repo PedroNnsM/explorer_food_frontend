@@ -21,13 +21,10 @@ export function NewDishe() {
   const [category, setCategory] = useState("");
 
   const [ingredients, setIngredients] = useState([]);
-  const [newIngredient, setnewIngredient] = useState("");
+  const [newIngredient, setNewIngredient] = useState("");
 
   const [price, setPrice] = useState();
   const [description, setDescription] = useState("");
-
-  const [dishes, setDishes] = useState([]);
-  const [search, setSearch] = useState("");
 
   const navigate = useNavigate();
   const handleBack = () => {
@@ -35,11 +32,7 @@ export function NewDishe() {
   };
 
   function handleSelectImg(event) {
-    const file = event.target.files[0];
-    setImg(file);
-
-    const imagePreview = URL.createObjectURL(file);
-    setImg(imagePreview);
+    setImg(event.target.files[0]);
   }
 
   const handleSelectChange = (event) => {
@@ -48,7 +41,7 @@ export function NewDishe() {
 
   function handleAddIngredient() {
     setIngredients((prevState) => [...prevState, newIngredient]);
-    setnewIngredient("");
+    setNewIngredient("");
   }
 
   function handleRemoveTag(deleted) {
@@ -56,17 +49,6 @@ export function NewDishe() {
       prevState.filter((ingredient) => ingredient !== deleted)
     );
   }
-
-  useEffect(() => {
-    async function fetchDishes() {
-      const response = await api.get(
-        `/dishes?title=${search}&ingredients=${search}`
-      );
-      setDishes(response.data);
-      console.log(response);
-    }
-    fetchDishes();
-  }, [dishes, search]);
 
   async function handleNewDishe() {
     if (!img) {
@@ -87,22 +69,37 @@ export function NewDishe() {
       return alert("Digite a descrição do prato");
     }
 
-    await api.post("/dishes", {
-      img,
-      name,
-      category,
-      ingredients,
-      price,
-      description,
-    });
+    const fileUpload = new FormData();
 
-    alert("Prato criado com sucesso");
-    handleBack();
+    fileUpload.append("img", img);
+    fileUpload.append(
+      "data",
+      JSON.stringify({
+        title: name,
+        price,
+        description,
+        category,
+        ingredients,
+      })
+    );
+
+    await api
+      .post("/dishes", fileUpload)
+      .then(() => {
+        alert("Prato cadastrado com sucesso!");
+        handleBack();
+      })
+      .catch((error) => {
+        if (error.response) {
+          alert(error.response.data.message);
+        } else {
+          alert("Não foi possível cadastrar o prato!");
+        }
+      });
   }
-  console.log(img);
   return (
     <Container>
-      <Header search={setSearch} />
+      <Header />
       <Content>
         <TextTop onClick={handleBack}>
           <SlArrowLeft /> <span>Voltar</span>
@@ -157,7 +154,7 @@ export function NewDishe() {
               <IngredientsItem
                 isNew
                 placeholder="Adicionar "
-                onChange={(e) => setnewIngredient(e.target.value)}
+                onChange={(e) => setNewIngredient(e.target.value)}
                 value={newIngredient}
                 onClick={handleAddIngredient}
               />
