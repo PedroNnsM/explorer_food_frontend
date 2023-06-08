@@ -16,7 +16,7 @@ import { Textarea } from "../../components/Textarea";
 import { Button } from "../../components/Button";
 
 export function NewDishe() {
-  const [img, setImg] = useState("");
+  const [img, setImg] = useState(null);
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
 
@@ -29,8 +29,6 @@ export function NewDishe() {
   const [dishes, setDishes] = useState([]);
   const [search, setSearch] = useState("");
 
-  
-
   const navigate = useNavigate();
   const handleBack = () => {
     navigate(-1);
@@ -39,6 +37,9 @@ export function NewDishe() {
   function handleSelectImg(event) {
     const file = event.target.files[0];
     setImg(file);
+
+    const imagePreview = URL.createObjectURL(file);
+    setImg(imagePreview);
   }
 
   const handleSelectChange = (event) => {
