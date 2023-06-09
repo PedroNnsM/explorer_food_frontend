@@ -130,10 +130,43 @@ export const Form = styled.form`
   }
 
   @media (min-width: ${({ theme }) => theme.SIZE.MEDIUM}) {
-    width: 44.4rem;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.5fr 0.4fr 1.9fr 0.5fr 0.3fr 1.3fr;
+    grid-template-rows: 0.5fr 0.5fr 1fr 0.5fr;
+    grid-template-areas:
+      "IMAGE TITLE TITLE CATEGORY CATEGORY CATEGORY"
+      "INGREDIENTS INGREDIENTS INGREDIENTS INGREDIENTS PRICE PRICE"
+      "DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION"
+      ". . . . . BUTTON";
+    gap: 24px;
 
+    section:nth-child(1) {
+      grid-area: IMAGE;
+    }
+    section:nth-child(2) {
+      grid-area: TITLE;
+    }
+    section:nth-child(3) {
+      grid-area: CATEGORY;
+    }
+    section:nth-child(4) {
+      grid-area: INGREDIENTS;
+    }
+    section:nth-child(5) {
+      grid-area: PRICE;
+    }
+    section:nth-child(6) {
+      grid-area: DESCRIPTION;
+    }
+    button {
+      grid-area: BUTTON;
+    }
     > h1 {
       display: block;
     }
+  }
+  @media (min-width: ${({ theme }) => theme.SIZE.LARGE}) {
+    grid-template-columns: 1.1fr 0.9fr 1.9fr 0.5fr 0.3fr 1.3fr; 
   }
 `;

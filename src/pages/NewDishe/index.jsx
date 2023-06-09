@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { Header } from "../../components/Header";
 import { Container, Content, TextTop, Form } from "./styles";
 
@@ -17,7 +17,7 @@ import { Button } from "../../components/Button";
 
 export function NewDishe() {
   const [img, setImg] = useState(null);
-  const [name, setName] = useState("");
+  const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
 
   const [ingredients, setIngredients] = useState([]);
@@ -54,7 +54,7 @@ export function NewDishe() {
     if (!img) {
       return alert("Adicione a imagem do prato");
     }
-    if (!name) {
+    if (!title) {
       return alert("Digite o nome do prato");
     }
     if (newIngredient) {
@@ -69,13 +69,15 @@ export function NewDishe() {
       return alert("Digite a descrição do prato");
     }
 
+
+
     const fileUpload = new FormData();
 
     fileUpload.append("img", img);
     fileUpload.append(
       "data",
       JSON.stringify({
-        title: name,
+        title,
         price,
         description,
         category,
@@ -125,8 +127,8 @@ export function NewDishe() {
             <Input
               placeholder="Ex.: Salada Ceasar"
               type="text"
-              id={name}
-              onChange={(e) => setName(e.target.value)}
+              id='title'
+              onChange={(e) => setTitle(e.target.value)}
             />
           </Section>
           <Section title="Cetegoria">
@@ -142,7 +144,7 @@ export function NewDishe() {
             </select>
             <RiArrowDownSLine size={24} />
           </Section>
-          <Section title="Ingredientes">
+          <Section title="Ingredientes" >
             <div className="Ingredients">
               {ingredients.map((Ingredient, index) => (
                 <IngredientsItem
