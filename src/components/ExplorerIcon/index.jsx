@@ -9,6 +9,7 @@ export function ExplorerIcon({
   fill,
   width,
   height,
+  cursor,
   marginBotton,
   ...rest
 }) {
@@ -17,6 +18,7 @@ export function ExplorerIcon({
       marginBotton={marginBotton}
       margin={margin}
       width={width}
+      cursor={cursor}
       {...rest}
     >
       <svg

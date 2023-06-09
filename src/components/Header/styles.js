@@ -28,6 +28,10 @@ export const Content = styled.div`
   @media (min-width: ${({ theme }) => theme.SIZE.MEDIUM}) {
     margin: 0;
     padding: 5.4rem 0 2.8rem;
+
+    >button {
+      width: 21.6rem;
+    }
   }
 `;
 

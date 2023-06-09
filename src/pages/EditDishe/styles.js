@@ -141,7 +141,7 @@ export const Form = styled.form`
       "IMAGE TITLE TITLE CATEGORY CATEGORY CATEGORY"
       "INGREDIENTS INGREDIENTS INGREDIENTS INGREDIENTS PRICE PRICE"
       "DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION"
-      ". . . . . BUTTON";
+      ". . . BUTTON-DELETE BUTTON-DELETE BUTTON-SAVE";
     gap: 24px;
 
     section:nth-child(1) {
@@ -162,8 +162,12 @@ export const Form = styled.form`
     section:nth-child(6) {
       grid-area: DESCRIPTION;
     }
-    button {
-      grid-area: BUTTON;
+    
+    button:nth-child(1){
+      grid-area: BUTTON-DELETE;
+    }
+    button:nth-child(2){
+      grid-area: BUTTON-SAVE;
     }
     > h1 {
       display: block;

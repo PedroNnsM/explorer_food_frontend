@@ -5,6 +5,7 @@ export const Container = styled.div`
   margin-left: auto;
   margin-right: auto;
   margin: ${(props) => props.margin};
+  cursor: ${(props) => props.cursor };
 
   display: flex;
   align-items: center;

@@ -13,6 +13,7 @@ export function Footer({ ...rest }) {
           color={theme.COLORS.LIGHT["700"]}
           fill={theme.COLORS.LIGHT["700"]}
           fontSize="1.3rem"
+          cursor='default'
         />
         <p>© 2023 - Todos os direitos reservados.</p>
       </Content>

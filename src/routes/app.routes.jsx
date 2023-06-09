@@ -4,19 +4,26 @@ import { Home } from "../pages/Home";
 import { NewDishe } from "../pages/NewDishe";
 
 import { useAuth } from "../hooks/auth";
+import { EditDishe } from "../pages/EditDishe";
 
 export function AppRoutes() {
   const { user } = useAuth();
 
   const isAdmin = user.admin;
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
+    <>
       {isAdmin ? (
-        <Route path="/novo-prato" element={<NewDishe />} />
+        <Routes>
+          <Route path="/" element={<Home />} />
+
+          <Route path="/novo-prato" element={<NewDishe />} />
+          <Route path="/editar-prato" element={<EditDishe />} />
+        </Routes>
       ) : (
-        alert("Sem Autorizaão de acesso")
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
       )}
-    </Routes>
+    </>
   );
 }

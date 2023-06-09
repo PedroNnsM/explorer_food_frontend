@@ -25,6 +25,7 @@ import { AiOutlineClose } from "react-icons/ai";
 
 import { useAuth } from "../../hooks/auth";
 import { useNavigate } from "react-router-dom";
+import { Button } from "../Button";
 
 export function Header({ search }) {
   // const [count, setCount] = useState(0);
@@ -36,6 +37,10 @@ export function Header({ search }) {
 
   function logout() {
     signOut();
+    navigate("/");
+  }
+
+  function handleToHome() {
     navigate("/");
   }
 
@@ -87,9 +92,7 @@ export function Header({ search }) {
               <Item onClick={moveToNewDishes}>
                 <p>Novo prato</p>
               </Item>
-            ) : (
-              null
-            )}
+            ) : null}
             <Item onClick={logout}>
               <p>Sair</p>
             </Item>
@@ -104,6 +107,8 @@ export function Header({ search }) {
                 margin="0"
                 fontSize="clamp(1.1rem,2.1rem,2.3rem )"
                 width="2.0rem"
+                onClick={handleToHome}
+                cursor="pointer"
               />
               {isAdmin ? <span>admin</span> : ""}
             </Brand>
@@ -115,9 +120,7 @@ export function Header({ search }) {
               />
             </InputSearching>
             {isAdmin ? (
-              <HeaderButton onClick={moveToNewDishes}>
-                <p>Novo prato</p>
-              </HeaderButton>
+              <Button title="Novo Prato" onClick={moveToNewDishes} />
             ) : (
               <HeaderButton onClick={moveToReceipt}>
                 <img src={Receipt} alt="" />
