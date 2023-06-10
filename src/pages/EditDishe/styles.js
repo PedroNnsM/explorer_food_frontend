@@ -132,6 +132,16 @@ export const Form = styled.form`
     text-decoration: none;
   }
 
+  .divButtonsform {
+    width: 100%;
+    grid-area: BUTTONS;
+    display: flex;
+    gap: 32px;
+  }
+  .divButtonsform > button {
+    width: 100%;
+  }
+
   @media (min-width: ${({ theme }) => theme.SIZE.MEDIUM}) {
     width: 100%;
     display: grid;
@@ -141,34 +151,28 @@ export const Form = styled.form`
       "IMAGE TITLE TITLE CATEGORY CATEGORY CATEGORY"
       "INGREDIENTS INGREDIENTS INGREDIENTS INGREDIENTS PRICE PRICE"
       "DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION"
-      ". . . BUTTON-DELETE BUTTON-DELETE BUTTON-SAVE";
+      ". . . BUTTONS BUTTONS BUTTONS";
     gap: 24px;
 
-    section:nth-child(1) {
+    div:nth-child(1) {
       grid-area: IMAGE;
     }
-    section:nth-child(2) {
+    div:nth-child(2) {
       grid-area: TITLE;
     }
-    section:nth-child(3) {
+    div:nth-child(3) {
       grid-area: CATEGORY;
     }
-    section:nth-child(4) {
+    div:nth-child(4) {
       grid-area: INGREDIENTS;
     }
-    section:nth-child(5) {
+    div:nth-child(5) {
       grid-area: PRICE;
     }
-    section:nth-child(6) {
+    div:nth-child(6) {
       grid-area: DESCRIPTION;
     }
-    
-    button:nth-child(1){
-      grid-area: BUTTON-DELETE;
-    }
-    button:nth-child(2){
-      grid-area: BUTTON-SAVE;
-    }
+
     > h1 {
       display: block;
     }

@@ -11,9 +11,9 @@ import { api } from "../../services/api";
 import { Input } from "../../components/Input";
 import { useNavigate } from "react-router-dom";
 import { IngredientsItem } from "../../components/IngredientsItem";
-import { Section } from "../../components/Section";
 import { Textarea } from "../../components/Textarea";
 import { Button } from "../../components/Button";
+import { DivWithLabel } from "../../components/DivWithLabel";
 
 export function EditDishe() {
   const [img, setImg] = useState(null);
@@ -108,7 +108,7 @@ export function EditDishe() {
           <h3>Editar prato</h3>
         </TextTop>
         <Form>
-          <Section title="Imagem do prato">
+          <DivWithLabel title="Imagem do prato">
             <Input
               type="file"
               id="imgPlate"
@@ -120,16 +120,16 @@ export function EditDishe() {
               <FiUpload size={24} />{" "}
               <label htmlFor="imgPlate">Selecione imagem</label>
             </div>
-          </Section>
-          <Section title="Nome">
+          </DivWithLabel>
+          <DivWithLabel title="Nome">
             <Input
               placeholder="Ex.: Salada Ceasar"
               type="text"
               id="title"
               onChange={(e) => setTitle(e.target.value)}
             />
-          </Section>
-          <Section title="Cetegoria">
+          </DivWithLabel>
+          <DivWithLabel title="Cetegoria">
             <select
               id="category"
               value={category}
@@ -141,8 +141,8 @@ export function EditDishe() {
               <option value="Drink">Bebida</option>
             </select>
             <RiArrowDownSLine size={24} />
-          </Section>
-          <Section title="Ingredientes">
+          </DivWithLabel>
+          <DivWithLabel title="Ingredientes">
             <div className="Ingredients">
               {ingredients.map((Ingredient, index) => (
                 <IngredientsItem
@@ -159,8 +159,8 @@ export function EditDishe() {
                 onClick={handleAddIngredient}
               />
             </div>
-          </Section>
-          <Section title="Preço">
+          </DivWithLabel>
+          <DivWithLabel title="Preço">
             <p className="price">R$</p>
             <Input
               type="number"
@@ -169,15 +169,17 @@ export function EditDishe() {
               id="price"
               onChange={(e) => setPrice(e.target.value)}
             />
-          </Section>
-          <Section title="Descrição">
+          </DivWithLabel>
+          <DivWithLabel title="Descrição">
             <Textarea
               placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
               onChange={(e) => setDescription(e.target.value)}
             />
-          </Section>
-          <Button title="Excluir prato"  onClick={handleNewDishe} />
-          <Button title="Salvar alterações" forms onClick={handleNewDishe} />
+          </DivWithLabel>
+          <div className="divButtonsform">
+            <Button title="Excluir prato" onClick={handleNewDishe} />
+            <Button title="Salvar alterações" forms onClick={handleNewDishe} />
+          </div>
         </Form>
       </Content>
       <Footer />
