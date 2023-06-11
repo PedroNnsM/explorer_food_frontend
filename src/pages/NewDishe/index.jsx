@@ -1,4 +1,4 @@
-import {  useState } from "react";
+import { useState } from "react";
 import { Header } from "../../components/Header";
 import { Container, Content, TextTop, Form } from "./styles";
 
@@ -16,7 +16,7 @@ import { Textarea } from "../../components/Textarea";
 import { Button } from "../../components/Button";
 
 export function NewDishe() {
-  const [img, setImg] = useState(null);
+  const [image, setImage] = useState(null);
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
 
@@ -31,8 +31,8 @@ export function NewDishe() {
     navigate(-1);
   };
 
-  function handleSelectImg(event) {
-    setImg(event.target.files[0]);
+  function handleSelectimage(event) {
+    setImage(event.target.files[0]);
   }
 
   const handleSelectChange = (event) => {
@@ -51,7 +51,7 @@ export function NewDishe() {
   }
 
   async function handleNewDishe() {
-    if (!img) {
+    if (!image) {
       return alert("Adicione a imagem do prato");
     }
     if (!title) {
@@ -69,24 +69,19 @@ export function NewDishe() {
       return alert("Digite a descrição do prato");
     }
 
+  api.post("/images", { image })
+  .then(response => response.json())
+  .then(data => {
 
-
-    const fileUpload = new FormData();
-
-    fileUpload.append("img", img);
-    fileUpload.append(
-      "data",
-      JSON.stringify({
-        title,
-        price,
-        description,
-        category,
-        ingredients,
-      })
-    );
+    console.log(data);
+  })
+  .catch(error => {
+  
+    console.error(error);
+  });
 
     await api
-      .post("/dishes", fileUpload)
+      .post("/dishes")
       .then(() => {
         alert("Prato cadastrado com sucesso!");
         handleBack();
@@ -113,21 +108,21 @@ export function NewDishe() {
           <Section title="Imagem do prato">
             <Input
               type="file"
-              id="imgPlate"
-              name="imgPlate"
-              onChange={handleSelectImg}
+              id="imagePlate"
+              name="imagePlate"
+              onChange={handleSelectimage}
               accept="image/png, image/jpeg"
             />
             <div className="labelImg">
               <FiUpload size={24} />{" "}
-              <label htmlFor="imgPlate">Selecione imagem</label>
+              <label htmlFor="imagePlate">Selecione imagem</label>
             </div>
           </Section>
           <Section title="Nome">
             <Input
               placeholder="Ex.: Salada Ceasar"
               type="text"
-              id='title'
+              id="title"
               onChange={(e) => setTitle(e.target.value)}
             />
           </Section>
@@ -144,7 +139,7 @@ export function NewDishe() {
             </select>
             <RiArrowDownSLine size={24} />
           </Section>
-          <Section title="Ingredientes" >
+          <Section title="Ingredientes">
             <div className="Ingredients">
               {ingredients.map((Ingredient, index) => (
                 <IngredientsItem

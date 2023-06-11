@@ -11,10 +11,10 @@ function AuthProvider({ children }) {
   async function signIn({ email, password }) {
     try {
       const response = await api.post("/sessions", { email, password });
-      const { user, token } = response.data;
+      const { user, token, } = response.data;
 
-      localStorage.setItem("@rocketnotes:user", JSON.stringify(user));
-      localStorage.setItem("@rocketnotes:token", token);
+      localStorage.setItem("@foodexplorer:user", JSON.stringify(user));
+      localStorage.setItem("@foodexplorer:token", token);
 
       api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
@@ -29,8 +29,8 @@ function AuthProvider({ children }) {
   }
 
   function signOut() {
-    localStorage.removeItem("@rocketnotes:token");
-    localStorage.removeItem("@rocketnotes:user");
+    localStorage.removeItem("@foodexplorer:token");
+    localStorage.removeItem("@foodexplorer:user");
 
     setData({});
   }
@@ -39,15 +39,15 @@ function AuthProvider({ children }) {
     try {
       if (avatarFile) {
         const fileUploadForm = new FormData();
-        fileUploadForm.append("avatar", avatarFile);
+        fileUploadForm.append("image", avatarFile);
 
-        const response = await api.patch("/users/avatar", fileUploadForm);
+        const response = await api.patch("/dishes/images", fileUploadForm);
 
         user.avatar = response.data.avatar
       }
 
       await api.put("/users", user);
-      localStorage.setItem("@rocketnotes:user", JSON.stringify(user));
+      localStorage.setItem("@foodexplorer:user", JSON.stringify(user));
 
       setData({ user, token: data.token });
       alert("Perfil Atualizado");
@@ -64,8 +64,8 @@ function AuthProvider({ children }) {
   }
 
   useEffect(() => {
-    const token = localStorage.getItem("@rocketnotes:token");
-    const user = localStorage.getItem("@rocketnotes:user");
+    const token = localStorage.getItem("@foodexplorer:token");
+    const user = localStorage.getItem("@foodexplorer:user");
 
     if (token && user) {
       api.defaults.headers.common["Authorization"] = `Bearer ${token}`;

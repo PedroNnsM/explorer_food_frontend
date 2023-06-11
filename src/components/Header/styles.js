@@ -18,18 +18,23 @@ export const Content = styled.div`
   max-width: 1120px;
   width: 90%;
   height: 11.4rem;
-  padding: 5.4rem 2.8rem 2.4rem;
+  padding: 5.4rem 0 2.4rem;
 
   display: flex;
   gap: 16px;
   align-items: center;
   justify-content: space-between;
 
+  > button {
+    display: none;
+  }
+
   @media (min-width: ${({ theme }) => theme.SIZE.MEDIUM}) {
     margin: 0;
     padding: 5.4rem 0 2.8rem;
 
-    >button {
+    > button {
+      display: block;
       width: 21.6rem;
     }
   }
@@ -114,7 +119,7 @@ export const Brand = styled.div`
   }
 `;
 
-export const InputSearching = styled.div`
+export const Search = styled.div`
   width: 32%;
 
   display: none;
@@ -128,6 +133,7 @@ export const InputSearching = styled.div`
     width: 45%;
   }
 `;
+
 export const HeaderButton = styled.div`
   cursor: pointer;
   > p {
@@ -150,7 +156,9 @@ export const HeaderButton = styled.div`
 
     border-radius: 5px;
     background-color: ${({ theme }) => theme.COLORS.TOMATO["100"]};
-
+    :hover {
+      filter: brightness(0.9);
+    }
     > p {
       display: block;
       font-size: 1.4rem;

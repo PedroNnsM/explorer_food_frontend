@@ -9,7 +9,7 @@ import {
   ItemMenu,
   Item,
   Brand,
-  InputSearching,
+  Search,
   HeaderButton,
   SingOut,
 } from "./styles";
@@ -112,13 +112,13 @@ export function Header({ search }) {
               />
               {isAdmin ? <span>admin</span> : ""}
             </Brand>
-            <InputSearching>
+            <Search>
               <Input
                 searching
                 onChange={(e) => search(e.target.value)}
                 placeholder="Busque por pratos ou ingredientes"
               />
-            </InputSearching>
+            </Search>
             {isAdmin ? (
               <Button title="Novo Prato" onClick={moveToNewDishes} />
             ) : (
