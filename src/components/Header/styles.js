@@ -23,7 +23,6 @@ export const Content = styled.div`
   display: flex;
   gap: 16px;
   align-items: center;
-  justify-content: space-between;
 
   > button {
     display: none;
@@ -32,7 +31,14 @@ export const Content = styled.div`
   @media (min-width: ${({ theme }) => theme.SIZE.MEDIUM}) {
     margin: 0;
     padding: 5.4rem 0 2.8rem;
+    justify-content: space-between;
 
+    > button {
+      display: block;
+      width: 18.6rem;
+    }
+  }
+  @media (min-width: ${({ theme }) => theme.SIZE.LARGE}) {
     > button {
       display: block;
       width: 21.6rem;
@@ -104,15 +110,17 @@ export const Item = styled.div`
 `;
 
 export const Brand = styled.div`
+  width: 100%;
   font-size: 12px;
   display: flex;
   gap: 8px;
   align-items: center;
-
+  justify-content: center;
   > span {
     color: ${({ theme }) => theme.COLORS.CAKE["200"]};
   }
   @media (min-width: ${({ theme }) => theme.SIZE.MEDIUM}) {
+    width: 16.0rem;
     flex-direction: column;
     gap: 0px;
     align-items: end;
@@ -127,10 +135,11 @@ export const Search = styled.div`
 
   @media (min-width: ${({ theme }) => theme.SIZE.MEDIUM}) {
     display: block;
+    width: 40%;
   }
 
   @media (min-width: ${({ theme }) => theme.SIZE.LARGE}) {
-    width: 45%;
+    width: 55%;
   }
 `;
 
