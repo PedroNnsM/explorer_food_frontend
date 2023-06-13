@@ -69,30 +69,30 @@ export function NewDishe() {
       return alert("Digite a descrição do prato");
     }
 
-  api.post("/images", { image })
-  .then(response => response.json())
-  .then(data => {
-
-    console.log(data);
-  })
-  .catch(error => {
-  
-    console.error(error);
-  });
+    const form = new FormData();
+    form.append("image", image);
+    const imageResponse = await api.post("/images", form);
 
     await api
-      .post("/dishes")
-      .then(() => {
-        alert("Prato cadastrado com sucesso!");
-        handleBack();
-      })
-      .catch((error) => {
-        if (error.response) {
-          alert(error.response.data.message);
-        } else {
-          alert("Não foi possível cadastrar o prato!");
-        }
-      });
+      .post("/dishes", {
+         title,
+       description,
+       ingredients,
+       price,
+       category,
+       image: imageResponse.data.filename,
+     })
+     .then(() => {
+       alert("Prato cadastrado com sucesso!");
+       handleBack();
+     })
+     .catch((error) => {
+       if (error.response) {
+         alert(error.response.data.message);
+       } else {
+         alert("Não foi possível cadastrar o prato!");
+       }
+     });
   }
   return (
     <Container>
@@ -133,9 +133,9 @@ export function NewDishe() {
               onChange={handleSelectChange}
             >
               <option value="">Selecione...</option>
-              <option value="Meal">Refeição</option>
-              <option value="Dessert">Sobremesa</option>
-              <option value="Drink">Bebida</option>
+              <option value="meal">Refeição</option>
+              <option value="dessert">Sobremesa</option>
+              <option value="drink">Bebida</option>
             </select>
             <RiArrowDownSLine size={24} />
           </Section>
