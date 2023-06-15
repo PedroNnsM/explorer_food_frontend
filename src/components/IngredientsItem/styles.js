@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
- 
-  width: 30%;
+
+  width: fit-content;
 
   background-color: ${({ theme, isNew }) =>
     isNew ? "transparent" : theme.COLORS.LIGHT["600"]};
@@ -16,7 +16,7 @@ export const Container = styled.div`
   padding: 5px 16px;
 
   > button {
-    margin:0;
+    margin: 0;
     padding: 0;
     border: none;
     background: none;
@@ -29,7 +29,7 @@ export const Container = styled.div`
   }
 
   > input {
-    width:90%;
+    width: fit-content;
     font-size: 16px;
     font-weight: 400;
     color: ${({ theme }) => theme.COLORS.LIGHT["100"]};

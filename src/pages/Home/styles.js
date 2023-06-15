@@ -15,7 +15,7 @@ const fadeInAndScale = keyframes`
 `;
 export const Container = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 100%;
 
   display: flex;
   flex-direction: column;
@@ -29,7 +29,7 @@ export const Banner = styled.div`
   position: relative;
   max-width: 1120px;
   width: 85%;
-  height: 12rem;
+  height: 120px;
   margin: 4.4rem 1.6rem 6.2rem 3.2rem;
 
   display: flex;
@@ -85,6 +85,7 @@ export const Banner = styled.div`
     font-size: 1.2rem;
     color: ${({ theme }) => theme.COLORS.LIGHT["300"]};
   }
+  
   @media (min-width: ${({ theme }) => theme.SIZE.MEDIUM}) {
     width: 90%;
     max-width: 1120px;

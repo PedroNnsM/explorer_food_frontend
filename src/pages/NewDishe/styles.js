@@ -28,7 +28,7 @@ export const Content = styled.main`
     padding: 12px;
     background-color: ${({ theme }) => theme.COLORS.DARK["900"]};
 
-    display: flex;
+    display: inline-flex;
     gap: 8px;
     align-items: center;
     justify-content: flex-start;

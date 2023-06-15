@@ -13,14 +13,11 @@ export function Home() {
 
   useEffect(() => {
     async function fetchDishes() {
-      const response = await api.get(
-        `/dishes?title=${search}&ingredients=${search}`
-      );
+      const response = await api.get(`/ingredients`);
       setDishes(response.data);
-      console.log(response);
     }
     fetchDishes();
-  }, [dishes, search]);
+  }, []);
   return (
     <Container>
       <Header search={setSearch} />
@@ -40,6 +37,7 @@ export function Home() {
           <p>Sinta o cuidado do preparo com ingredientes selecionados.</p>
         </div>
       </Banner>
+      {dishes && dishes.map((dishe) => <p key={dishes.id}> {dishe.title} </p>)}
       <Footer />
     </Container>
   );
