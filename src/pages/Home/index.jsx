@@ -9,18 +9,18 @@ import { Footer } from "../../components/Footer";
 
 export function Home() {
   const [dishes, setDishes] = useState([]);
-  const [search, setSearch] = useState("");
+  // const [search, setSearch] = useState("");
 
   useEffect(() => {
     async function fetchDishes() {
-      const response = await api.get(`/ingredients`);
+      const response = await api.get(`/dishes`);
       setDishes(response.data);
     }
     fetchDishes();
   }, []);
   return (
     <Container>
-      <Header search={setSearch} />
+      <Header />
       <Banner>
         <img
           className="imgMobile"
@@ -37,7 +37,7 @@ export function Home() {
           <p>Sinta o cuidado do preparo com ingredientes selecionados.</p>
         </div>
       </Banner>
-      {dishes && dishes.map((dishe) => <p key={dishes.id}> {dishe.title} </p>)}
+      {dishes && dishes.map((dishe) => <p key={String(dishes.id)}> {dishe.title} </p>)}
       <Footer />
     </Container>
   );
