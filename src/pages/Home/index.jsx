@@ -14,7 +14,7 @@ export function Home() {
   useEffect(() => {
     async function fetchDishes() {
       const response = await api.get(`/dishes`);
-      setDishes(response.data);
+      console.log(response.data);
     }
     fetchDishes();
   }, []);
