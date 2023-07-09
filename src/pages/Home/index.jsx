@@ -9,15 +9,17 @@ import { Footer } from "../../components/Footer";
 
 export function Home() {
   const [dishes, setDishes] = useState([]);
-  // const [search, setSearch] = useState("");
+  const [ingredientSelected, setIngredientSelected] = useState([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     async function fetchDishes() {
-      const response = await api.get(`/dishes`);
+      const response = await api.get(`/dishes?title=${search}&tags=${ingredientSelected}`);
       console.log(response.data);
+      setDishes(response.data)
     }
     fetchDishes();
-  }, []);
+  }, [ingredientSelected, search]);
   return (
     <Container>
       <Header />
