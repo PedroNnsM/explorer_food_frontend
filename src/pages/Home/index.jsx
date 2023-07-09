@@ -9,17 +9,33 @@ import { Footer } from "../../components/Footer";
 
 export function Home() {
   const [dishes, setDishes] = useState([]);
-  const [ingredientSelected, setIngredientSelected] = useState([]);
+  const [ingredientsSelected, setIngredientsSelected] = useState([]);
   const [search, setSearch] = useState("");
+
+  function handleIngredientSelected(ingredientName) {
+    if (ingredientName === "all") {
+      return setIngredientsSelected([]);
+    }
+
+    const alreadySelected = ingredientsSelected.includes(ingredientName);
+    if (alreadySelected) {
+      const filteredingredients = ingredientsSelected.filter((ingredient) => ingredient != ingredientName);
+      setIngredientsSelected(filteredingredients);
+    } else {
+      setIngredientsSelected((prevState) => [...prevState, ingredientName]);
+    }
+  }
 
   useEffect(() => {
     async function fetchDishes() {
-      const response = await api.get(`/dishes?title=${search}&tags=${ingredientSelected}`);
+      const response = await api.get(
+        `/dishes?title=${search}&tags=${ingredientsSelected}`
+      );
       console.log(response.data);
-      setDishes(response.data)
+      setDishes(response.data);
     }
     fetchDishes();
-  }, [ingredientSelected, search]);
+  }, [ingredientsSelected, search]);
   return (
     <Container>
       <Header />
@@ -39,7 +55,10 @@ export function Home() {
           <p>Sinta o cuidado do preparo com ingredientes selecionados.</p>
         </div>
       </Banner>
-      {dishes && dishes.map((dishe) => <p key={String(dishes.id)}> {dishe.title} </p>)}
+      {dishes &&
+        dishes.map((dishe) => <div key={String(dishes.id)}>
+        <img src={dishe.image} alt="" />
+        <p> {dishe.title}</p> </div>)}
       <Footer />
     </Container>
   );
