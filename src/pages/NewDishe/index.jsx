@@ -75,24 +75,24 @@ export function NewDishe() {
 
     await api
       .post("/dishes", {
-         title,
-       description,
-       ingredients,
-       price,
-       category,
-       image: imageResponse.data.filename,
-     })
-     .then(() => {
-       alert("Prato cadastrado com sucesso!");
-       handleBack();
-     })
-     .catch((error) => {
-       if (error.response) {
-         alert(error.response.data.message);
-       } else {
-         alert("Não foi possível cadastrar o prato!");
-       }
-     });
+        title,
+        description,
+        ingredients,
+        price,
+        category,
+        image: imageResponse.data.filename,
+      })
+      .then(() => {
+        alert("Prato cadastrado com sucesso!");
+        handleBack();
+      })
+      .catch((error) => {
+        if (error.response) {
+          alert(error.response.data.message);
+        } else {
+          alert("Não foi possível cadastrar o prato!");
+        }
+      });
   }
   return (
     <Container>

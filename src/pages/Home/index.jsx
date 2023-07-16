@@ -36,6 +36,8 @@ export function Home() {
     }
     fetchDishes();
   }, [ingredientsSelected, search]);
+
+  console.log(dishes)
   return (
     <Container>
       <Header />
