@@ -3,7 +3,6 @@ import { Header } from "../../components/Header";
 import { Container, Content, TextTop, Form } from "./styles";
 
 import { Footer } from "../../components/Footer";
-import { SlArrowLeft } from "react-icons/sl";
 import { FiUpload } from "react-icons/fi";
 import { RiArrowDownSLine } from "react-icons/ri";
 
@@ -14,6 +13,7 @@ import { IngredientsItem } from "../../components/IngredientsItem";
 import { Textarea } from "../../components/Textarea";
 import { Button } from "../../components/Button";
 import { DivWithLabel } from "../../components/DivWithLabel";
+import { ButtonText } from "../../components/ButtonText";
 
 export function EditDishe() {
   const [img, setImg] = useState(null);
@@ -101,9 +101,7 @@ export function EditDishe() {
     <Container>
       <Header />
       <Content>
-        <TextTop onClick={handleBack}>
-          <SlArrowLeft /> <span>Voltar</span>
-        </TextTop>
+       <ButtonText/>
         <TextTop>
           <h3>Editar prato</h3>
         </TextTop>

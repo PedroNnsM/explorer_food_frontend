@@ -1,8 +1,15 @@
-import { Container, Content, TextTop, Form } from "./styles";
-
+import { Footer } from "../../components/Footer";
+import { Header } from "../../components/Header";
+import { Container } from "./styles";
 
 export function ShowDishe() {
-  return(
-    <Container>hello World</Container>
-  )
+  return (
+    <Container>
+      <Header />
+      <main>
+        
+      </main>
+      <Footer />
+    </Container>
+  );
 }

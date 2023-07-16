@@ -14,6 +14,7 @@ import { IngredientsItem } from "../../components/IngredientsItem";
 import { Section } from "../../components/Section";
 import { Textarea } from "../../components/Textarea";
 import { Button } from "../../components/Button";
+import { ButtonText } from "../../components/ButtonText";
 
 export function NewDishe() {
   const [image, setImage] = useState(null);
@@ -98,9 +99,7 @@ export function NewDishe() {
     <Container>
       <Header />
       <Content>
-        <TextTop onClick={handleBack}>
-          <SlArrowLeft /> <span>Voltar</span>
-        </TextTop>
+        <ButtonText />
         <TextTop>
           <h3>Novo prato</h3>
         </TextTop>

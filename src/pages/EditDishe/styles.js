@@ -46,17 +46,6 @@ export const TextTop = styled.div`
   font-family: ${({ theme }) => theme.FONTS.TEXT};
   cursor: default;
 
-  > svg {
-    cursor: pointer;
-    width: 15px;
-    height: 23px;
-  }
-
-  > span {
-    cursor: pointer;
-    font-size: 12px;
-    font-weight: 700;
-  }
 
   > h3 {
     font-size: 2.3rem;
