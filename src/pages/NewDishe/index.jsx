@@ -3,7 +3,6 @@ import { Header } from "../../components/Header";
 import { Container, Content, TextTop, Form } from "./styles";
 
 import { Footer } from "../../components/Footer";
-import { SlArrowLeft } from "react-icons/sl";
 import { FiUpload } from "react-icons/fi";
 import { RiArrowDownSLine } from "react-icons/ri";
 
