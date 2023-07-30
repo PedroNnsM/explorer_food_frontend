@@ -4,6 +4,14 @@ import { Header } from "../../components/Header";
 import { Container } from "./styles";
 
 export function ShowDishe() {
+  const mockDishe = {
+    title: "Prato bonito",
+    image: "https://i.ibb.co/2nRLRHk/image-2.png",
+    description:
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaelaborum esse neque sapiente, reprehenderit est, voluptas magnam impedit amet, velit ea unde ad veniam dicta facere commodi aliquam eligendi quam?",
+    price: 32.99,
+    category: "meal",
+  };
   return (
     <Container>
       <Header />
