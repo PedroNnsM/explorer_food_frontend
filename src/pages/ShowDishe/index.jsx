@@ -9,6 +9,7 @@ export function ShowDishe() {
     image: "https://i.ibb.co/2nRLRHk/image-2.png",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaelaborum esse neque sapiente, reprehenderit est, voluptas magnam impedit amet, velit ea unde ad veniam dicta facere commodi aliquam eligendi quam?",
+    ingredients: ["carne", "feijao", "legumes"],
     price: 32.99,
     category: "meal",
   };
@@ -18,19 +19,15 @@ export function ShowDishe() {
       <main>
         <ButtonText />
         <div>
-          <img src="" alt="" />
+          <img src={mockDishe.image} alt="" />
           <div>
-            <h2>titulo</h2>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae
-              laborum esse neque sapiente, reprehenderit est, voluptas magnam
-              impedit amet, velit ea unde ad veniam dicta facere commodi aliquam
-              eligendi quam?
-            </p>
-            <span>tags</span>
-            <span>tags</span>
-            <span>tags</span>
-            <span>tags</span>
+            <h2>{mockDishe.title}</h2>
+            <p>{mockDishe.description}</p>
+            {mockDishe.ingredients.map( (ingredient, index ) => (
+             <span key={String(index)} >
+              {ingredient}
+              </span>
+            ))}
             <button>editar prato</button>
           </div>
         </div>
