@@ -35,6 +35,22 @@ export const Content = styled.div`
     display: flex;
     flex-direction: column;
     gap: 24px;
+
+    h2 {
+      font-size: 2.8rem;
+      font-style: normal;
+      font-weight: 500;
+      font-family: ${({ theme }) => theme.FONTS.TEXT};
+      line-height: 140%;
+    }
+    p{
+      font-size: 1.4rem;
+      font-style: normal;
+      font-weight: 400;
+      font-family: ${({ theme }) => theme.FONTS.TEXT};
+      line-height: 140%;
+      color: ${({ theme }) => theme.COLORS.LIGHT["300"]}
+    }
   }
 `;
 
