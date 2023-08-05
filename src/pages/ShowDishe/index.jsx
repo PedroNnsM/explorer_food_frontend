@@ -1,7 +1,7 @@
 import { ButtonText } from "../../components/ButtonText";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
-import { Container } from "./styles";
+import { Container, Content, Ingredients } from "./styles";
 
 export function ShowDishe() {
   const mockDishe = {
@@ -9,7 +9,7 @@ export function ShowDishe() {
     image: "https://i.ibb.co/2nRLRHk/image-2.png",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaelaborum esse neque sapiente, reprehenderit est, voluptas magnam impedit amet, velit ea unde ad veniam dicta facere commodi aliquam eligendi quam?",
-    ingredients: ["carne", "feijao", "legumes"],
+    ingredients: ["carne", "feijao", "legumes", "legumes", "legumes", "legumes"],
     price: 32.99,
     category: "meal",
   };
@@ -18,19 +18,19 @@ export function ShowDishe() {
       <Header />
       <main>
         <ButtonText />
-        <div>
+        <Content>
           <img src={mockDishe.image} alt="" />
           <div>
             <h2>{mockDishe.title}</h2>
             <p>{mockDishe.description}</p>
-            {mockDishe.ingredients.map( (ingredient, index ) => (
-             <span key={String(index)} >
-              {ingredient}
-              </span>
-            ))}
+            <Ingredients>
+              {mockDishe.ingredients.map((ingredient, index) => (
+                <span key={String(index)}>{ingredient}</span>
+              ))}
+            </Ingredients>
             <button>editar prato</button>
           </div>
-        </div>
+        </Content>
       </main>
       <Footer />
     </Container>

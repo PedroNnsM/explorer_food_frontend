@@ -15,6 +15,33 @@ export const Container = styled.div`
 
   > main {
     max-width: 1120px;
-    width: 90%;
+    width: 80%;
+
+   
   }
 `;
+
+export const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  img{
+    width: 26.4rem;
+    height: 26.4rem;
+    margin: 16px 26px;
+    
+  }
+   > div{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+`;
+
+export const Ingredients = styled.div`
+ display: grid;
+ grid-template-columns: 1fr 1fr 1fr;
+`

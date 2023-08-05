@@ -18,8 +18,9 @@ export const Container = styled.div`
 
   > span {
     cursor: pointer;
-    font-size: 12px;
-    font-weight: 700;
+    font-size: 2.3rem;
+    font-style: normal;
+    font-weight: 500;
   }
 
   > h3 {

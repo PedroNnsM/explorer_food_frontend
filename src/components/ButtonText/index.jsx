@@ -9,7 +9,7 @@ export function ButtonText() {
   };
   return (
     <Container onClick={handleBack}>
-      <SlArrowLeft /> <span>Voltar</span>
+      <SlArrowLeft /> <span>voltar</span>
     </Container>
   );
 }
