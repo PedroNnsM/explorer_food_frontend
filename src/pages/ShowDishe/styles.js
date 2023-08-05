@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   position: relative;
-  width: 100%;
+
   height: 100vh;
 
   display: flex;
@@ -12,4 +12,9 @@ export const Container = styled.div`
   justify-content: center;
 
   overflow-y: auto;
+
+  > main {
+    max-width: 1120px;
+    width: 90%;
+  }
 `;

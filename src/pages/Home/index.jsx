@@ -19,7 +19,9 @@ export function Home() {
 
     const alreadySelected = ingredientsSelected.includes(ingredientName);
     if (alreadySelected) {
-      const filteredingredients = ingredientsSelected.filter((ingredient) => ingredient != ingredientName);
+      const filteredingredients = ingredientsSelected.filter(
+        (ingredient) => ingredient != ingredientName
+      );
       setIngredientsSelected(filteredingredients);
     } else {
       setIngredientsSelected((prevState) => [...prevState, ingredientName]);
@@ -31,13 +33,13 @@ export function Home() {
       const response = await api.get(
         `/dishes?title=${search}&tags=${ingredientsSelected}`
       );
-      console.log(response.data);
       setDishes(response.data);
+      console.log(response);
     }
     fetchDishes();
   }, [ingredientsSelected, search]);
 
-  console.log(dishes)
+  console.log(dishes);
   return (
     <Container>
       <Header />
@@ -58,9 +60,13 @@ export function Home() {
         </div>
       </Banner>
       {dishes &&
-        dishes.map((dishe) => <div key={String(dishes.id)}>
-        <img src={dishe.image} alt="" />
-        <p> {dishe.title}</p> </div>)}
+        dishes.map((dishe) => (
+          <div key={String(dishes.id)}>
+            <img src={dishe.image} alt="" />
+            <p> {dishe.title}</p>
+            <span>{dishe.price}</span>
+          </div>
+        ))}
       <Footer />
     </Container>
   );
