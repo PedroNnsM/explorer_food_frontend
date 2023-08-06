@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 export const Container = styled.div`
   position: relative;
 
@@ -53,6 +52,13 @@ export const Content = styled.div`
       color: ${({ theme }) => theme.COLORS.LIGHT["300"]};
     }
   }
+  @media (min-width: ${({ theme }) => theme.SIZE.MEDIUM}) {
+    flex-direction: row;
+    > img {
+      width: 39rem;
+      height: 39rem;
+    }
+  }
 `;
 
 export const Ingredients = styled.div`
@@ -74,8 +80,11 @@ export const Ingredients = styled.div`
     border-radius: 5px;
     background-color: ${({ theme }) => theme.COLORS.DARK["1000"]};
   }
+  @media (min-width: ${({ theme }) => theme.SIZE.MEDIUM}) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 `;
 
-export const StyledButton = styled.div `
-
-`
+export const StyledButton = styled.div``;
