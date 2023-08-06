@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+
 export const Container = styled.div`
   position: relative;
 
@@ -43,13 +44,13 @@ export const Content = styled.div`
       font-family: ${({ theme }) => theme.FONTS.TEXT};
       line-height: 140%;
     }
-    p{
+    p {
       font-size: 1.4rem;
       font-style: normal;
       font-weight: 400;
       font-family: ${({ theme }) => theme.FONTS.TEXT};
       line-height: 140%;
-      color: ${({ theme }) => theme.COLORS.LIGHT["300"]}
+      color: ${({ theme }) => theme.COLORS.LIGHT["300"]};
     }
   }
 `;
@@ -74,3 +75,7 @@ export const Ingredients = styled.div`
     background-color: ${({ theme }) => theme.COLORS.DARK["1000"]};
   }
 `;
+
+export const StyledButton = styled.div `
+
+`

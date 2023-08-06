@@ -1,7 +1,9 @@
+import { Button } from "../../components/Button";
 import { ButtonText } from "../../components/ButtonText";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
-import { Container, Content, Ingredients } from "./styles";
+import { useAuth } from "../../hooks/auth";
+import { Container, Content, Ingredients, StyledButton } from "./styles";
 
 export function ShowDishe() {
   const mockDishe = {
@@ -9,10 +11,19 @@ export function ShowDishe() {
     image: "https://i.ibb.co/2nRLRHk/image-2.png",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaelaborum esse neque sapiente, reprehenderit est, voluptas magnam impedit amet, velit ea unde ad veniam dicta facere commodi aliquam eligendi quam?",
-    ingredients: ["carne", "feijao", "legumes", "legumes", "legumes", "legumes"],
+    ingredients: [
+      "carne",
+      "feijao",
+      "legumes",
+      "legumes",
+      "legumes",
+      "legumes",
+    ],
     price: 32.99,
     category: "meal",
   };
+  const { user } = useAuth();
+  const isAdmin = user.admin;
   return (
     <Container>
       <Header />
@@ -28,7 +39,13 @@ export function ShowDishe() {
                 <span key={String(index)}>{ingredient}</span>
               ))}
             </Ingredients>
-            <button>editar prato</button>
+            {isAdmin ? (
+              <StyledButton>
+                <Button title="Editar prato" />{" "}
+              </StyledButton>
+            ) : (
+              <div></div>
+            )}
           </div>
         </Content>
       </main>
