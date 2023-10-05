@@ -9,6 +9,7 @@ import { Footer } from "../../components/Footer";
 
 export function Home() {
   const [dishes, setDishes] = useState([]);
+ 
   const [ingredientsSelected, setIngredientsSelected] = useState([]);
   const [search, setSearch] = useState("");
 
@@ -39,6 +40,8 @@ export function Home() {
     fetchDishes();
   }, [ingredientsSelected, search]);
 
+  const imgUrl = dishes.image ? `&& ${api.defaults.baseURL}/files/${dishes.image}` : null;
+  const [imgaDishe, setImageDishe] = useState(imgUrl)
   console.log(dishes);
   return (
     <Container>
