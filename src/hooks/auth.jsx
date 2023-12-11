@@ -35,15 +35,15 @@ function AuthProvider({ children }) {
     setData({});
   }
 
-  async function updateProfile({ user, avatarFile }) {
+  async function updateProfile({ dishes, imageFile }) {
     try {
-      if (avatarFile) {
+      if (imageFile) {
         const fileUploadForm = new FormData();
-        fileUploadForm.append("image", avatarFile);
+        fileUploadForm.append("image", imageFile);
 
         const response = await api.patch("/dishes/images", fileUploadForm);
 
-        user.avatar = response.data.avatar
+        dishes.image = response.data.image
       }
 
       await api.put("/users", user);

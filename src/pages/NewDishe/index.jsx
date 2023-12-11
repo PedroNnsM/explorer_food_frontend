@@ -16,7 +16,8 @@ import { Button } from "../../components/Button";
 import { ButtonText } from "../../components/ButtonText";
 
 export function NewDishe() {
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState(dishes.image);
+  const [imageFile, setImageFile] = useState(null);
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
 
@@ -31,8 +32,12 @@ export function NewDishe() {
     navigate(-1);
   };
 
-  function handleSelectimage(event) {
-    setImage(event.target.files[0]);
+  function handleChangeImage(event) {
+    const file = event.target.files[0];
+    setImageFile(file);
+
+    const imagePreview = URL.createObjectURL(file);
+    setImage(imagePreview);
   }
 
   const handleSelectChange = (event) => {
@@ -108,7 +113,7 @@ export function NewDishe() {
               type="file"
               id="imagePlate"
               name="imagePlate"
-              onChange={handleSelectimage}
+              onChange={handleChangeImage}
               accept="image/png, image/jpeg"
             />
             <div className="labelImg">
